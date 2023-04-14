@@ -1,0 +1,1005 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DoubleTCinema.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBCustomer">
+          <Key>
+            <PropertyRef Name="customer_id" />
+          </Key>
+          <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customer_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="customer_birthday" Type="date" Nullable="false" />
+          <Property Name="customer_address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="customer_phone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="customer_points" Type="int" />
+          <Property Name="is_deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBMovie">
+          <Key>
+            <PropertyRef Name="movie_id" />
+          </Key>
+          <Property Name="movie_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="movie_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="movie_genres_id" Type="int" />
+          <Property Name="movie_description" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="movie_length" Type="int" Nullable="false" />
+          <Property Name="movie_release" Type="date" Nullable="false" />
+          <Property Name="movie_image" Type="image" />
+          <Property Name="movie_price" Type="int" Nullable="false" />
+          <Property Name="is_deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBMovieGenres">
+          <Key>
+            <PropertyRef Name="movie_genres_id" />
+          </Key>
+          <Property Name="movie_genres_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="movie_genres" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="is_deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBReceipt">
+          <Key>
+            <PropertyRef Name="receipt_id" />
+          </Key>
+          <Property Name="receipt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="number_of_tickets" Type="int" Nullable="false" />
+          <Property Name="total_price" Type="int" Nullable="false" />
+          <Property Name="customer_id" Type="int" />
+          <Property Name="staff_id" Type="int" Nullable="false" />
+          <Property Name="schedule_id" Type="int" Nullable="false" />
+          <Property Name="datetime_booking" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBRoom">
+          <Key>
+            <PropertyRef Name="room_id" />
+          </Key>
+          <Property Name="room_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="room_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="room_number_of_seat" Type="int" Nullable="false" />
+          <Property Name="room_number_of_row" Type="int" Nullable="false" />
+          <Property Name="is_deleted" Type="bit" Nullable="false" />
+          <Property Name="room_type_id" Type="int" />
+        </EntityType>
+        <EntityType Name="TBRoomType">
+          <Key>
+            <PropertyRef Name="room_type_id" />
+          </Key>
+          <Property Name="room_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="room_type_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="room_type_price_percent" Type="int" Nullable="false" />
+          <Property Name="is_deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBSchedule">
+          <Key>
+            <PropertyRef Name="schedule_id" />
+          </Key>
+          <Property Name="schedule_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="schedule_date" Type="date" Nullable="false" />
+          <Property Name="schedule_start" Type="time" Precision="7" Nullable="false" />
+          <Property Name="schedule_end" Type="time" Precision="7" Nullable="false" />
+          <Property Name="schedule_price_percent" Type="int" Nullable="false" />
+          <Property Name="movie_id" Type="int" />
+          <Property Name="room_id" Type="int" Nullable="false" />
+          <Property Name="is_deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBSeat">
+          <Key>
+            <PropertyRef Name="seat_id" />
+          </Key>
+          <Property Name="seat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="seat_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="room_id" Type="int" Nullable="false" />
+          <Property Name="seat_type_id" Type="int" />
+          <Property Name="is_deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBSeatBooking">
+          <Key>
+            <PropertyRef Name="seat_booking_id" />
+          </Key>
+          <Property Name="seat_booking_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="schedule_id" Type="int" />
+          <Property Name="seat_id" Type="int" Nullable="false" />
+          <Property Name="receipt_id" Type="int" Nullable="false" />
+          <Property Name="is_deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBSeatType">
+          <Key>
+            <PropertyRef Name="seat_type_id" />
+          </Key>
+          <Property Name="seat_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="seat_type_name" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="seat_type_price_percent" Type="int" Nullable="false" />
+          <Property Name="seat_type_color" Type="int" Nullable="false" />
+          <Property Name="is_deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBShift">
+          <Key>
+            <PropertyRef Name="shift_id" />
+          </Key>
+          <Property Name="shift_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="shift_date" Type="date" Nullable="false" />
+          <Property Name="shifttime_id" Type="int" />
+          <Property Name="staff_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBShifttime">
+          <Key>
+            <PropertyRef Name="shifttime_id" />
+          </Key>
+          <Property Name="shifttime_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="shift_start" Type="time" Precision="7" Nullable="false" />
+          <Property Name="shift_end" Type="time" Precision="7" Nullable="false" />
+          <Property Name="is_deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBStaff">
+          <Key>
+            <PropertyRef Name="staff_id" />
+          </Key>
+          <Property Name="staff_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="staff_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="pwd" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="staff_phone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="role" Type="bit" Nullable="false" />
+          <Property Name="is_deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__TBSeat__room_id__6A30C649">
+          <End Role="TBRoom" Type="Self.TBRoom" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TBSeat" Type="Self.TBSeat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBRoom">
+              <PropertyRef Name="room_id" />
+            </Principal>
+            <Dependent Role="TBSeat">
+              <PropertyRef Name="room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_customer">
+          <End Role="TBCustomer" Type="Self.TBCustomer" Multiplicity="0..1" />
+          <End Role="TBReceipt" Type="Self.TBReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBCustomer">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="TBReceipt">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_movie">
+          <End Role="TBMovie" Type="Self.TBMovie" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TBSchedule" Type="Self.TBSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBMovie">
+              <PropertyRef Name="movie_id" />
+            </Principal>
+            <Dependent Role="TBSchedule">
+              <PropertyRef Name="movie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_movie_type">
+          <End Role="TBMovieGenres" Type="Self.TBMovieGenres" Multiplicity="0..1" />
+          <End Role="TBMovie" Type="Self.TBMovie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBMovieGenres">
+              <PropertyRef Name="movie_genres_id" />
+            </Principal>
+            <Dependent Role="TBMovie">
+              <PropertyRef Name="movie_genres_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_receipt">
+          <End Role="TBReceipt" Type="Self.TBReceipt" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TBSeatBooking" Type="Self.TBSeatBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBReceipt">
+              <PropertyRef Name="receipt_id" />
+            </Principal>
+            <Dependent Role="TBSeatBooking">
+              <PropertyRef Name="receipt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_room">
+          <End Role="TBRoom" Type="Self.TBRoom" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TBSchedule" Type="Self.TBSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBRoom">
+              <PropertyRef Name="room_id" />
+            </Principal>
+            <Dependent Role="TBSchedule">
+              <PropertyRef Name="room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_room_type">
+          <End Role="TBRoomType" Type="Self.TBRoomType" Multiplicity="0..1" />
+          <End Role="TBRoom" Type="Self.TBRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBRoomType">
+              <PropertyRef Name="room_type_id" />
+            </Principal>
+            <Dependent Role="TBRoom">
+              <PropertyRef Name="room_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_schedule">
+          <End Role="TBSchedule" Type="Self.TBSchedule" Multiplicity="1" />
+          <End Role="TBReceipt" Type="Self.TBReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBSchedule">
+              <PropertyRef Name="schedule_id" />
+            </Principal>
+            <Dependent Role="TBReceipt">
+              <PropertyRef Name="schedule_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_schedule_seatbooking">
+          <End Role="TBSchedule" Type="Self.TBSchedule" Multiplicity="0..1" />
+          <End Role="TBSeatBooking" Type="Self.TBSeatBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBSchedule">
+              <PropertyRef Name="schedule_id" />
+            </Principal>
+            <Dependent Role="TBSeatBooking">
+              <PropertyRef Name="schedule_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_seat">
+          <End Role="TBSeat" Type="Self.TBSeat" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TBSeatBooking" Type="Self.TBSeatBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBSeat">
+              <PropertyRef Name="seat_id" />
+            </Principal>
+            <Dependent Role="TBSeatBooking">
+              <PropertyRef Name="seat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_seat_type">
+          <End Role="TBSeatType" Type="Self.TBSeatType" Multiplicity="0..1" />
+          <End Role="TBSeat" Type="Self.TBSeat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBSeatType">
+              <PropertyRef Name="seat_type_id" />
+            </Principal>
+            <Dependent Role="TBSeat">
+              <PropertyRef Name="seat_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_shifttime">
+          <End Role="TBShifttime" Type="Self.TBShifttime" Multiplicity="0..1" />
+          <End Role="TBShift" Type="Self.TBShift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBShifttime">
+              <PropertyRef Name="shifttime_id" />
+            </Principal>
+            <Dependent Role="TBShift">
+              <PropertyRef Name="shifttime_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_staff">
+          <End Role="TBStaff" Type="Self.TBStaff" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TBShift" Type="Self.TBShift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBStaff">
+              <PropertyRef Name="staff_id" />
+            </Principal>
+            <Dependent Role="TBShift">
+              <PropertyRef Name="staff_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_staff_receipt">
+          <End Role="TBStaff" Type="Self.TBStaff" Multiplicity="1" />
+          <End Role="TBReceipt" Type="Self.TBReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBStaff">
+              <PropertyRef Name="staff_id" />
+            </Principal>
+            <Dependent Role="TBReceipt">
+              <PropertyRef Name="staff_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DoubleTCinemaStoreContainer">
+          <EntitySet Name="TBCustomer" EntityType="Self.TBCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBMovie" EntityType="Self.TBMovie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBMovieGenres" EntityType="Self.TBMovieGenres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBReceipt" EntityType="Self.TBReceipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBRoom" EntityType="Self.TBRoom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBRoomType" EntityType="Self.TBRoomType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBSchedule" EntityType="Self.TBSchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBSeat" EntityType="Self.TBSeat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBSeatBooking" EntityType="Self.TBSeatBooking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBSeatType" EntityType="Self.TBSeatType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBShift" EntityType="Self.TBShift" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBShifttime" EntityType="Self.TBShifttime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBStaff" EntityType="Self.TBStaff" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__TBSeat__room_id__6A30C649" Association="Self.FK__TBSeat__room_id__6A30C649">
+            <End Role="TBRoom" EntitySet="TBRoom" />
+            <End Role="TBSeat" EntitySet="TBSeat" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_customer" Association="Self.fk_id_customer">
+            <End Role="TBCustomer" EntitySet="TBCustomer" />
+            <End Role="TBReceipt" EntitySet="TBReceipt" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_movie" Association="Self.fk_id_movie">
+            <End Role="TBMovie" EntitySet="TBMovie" />
+            <End Role="TBSchedule" EntitySet="TBSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_movie_type" Association="Self.fk_id_movie_type">
+            <End Role="TBMovieGenres" EntitySet="TBMovieGenres" />
+            <End Role="TBMovie" EntitySet="TBMovie" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_receipt" Association="Self.fk_id_receipt">
+            <End Role="TBReceipt" EntitySet="TBReceipt" />
+            <End Role="TBSeatBooking" EntitySet="TBSeatBooking" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_room" Association="Self.fk_id_room">
+            <End Role="TBRoom" EntitySet="TBRoom" />
+            <End Role="TBSchedule" EntitySet="TBSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_room_type" Association="Self.fk_id_room_type">
+            <End Role="TBRoomType" EntitySet="TBRoomType" />
+            <End Role="TBRoom" EntitySet="TBRoom" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_schedule" Association="Self.fk_id_schedule">
+            <End Role="TBSchedule" EntitySet="TBSchedule" />
+            <End Role="TBReceipt" EntitySet="TBReceipt" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_schedule_seatbooking" Association="Self.fk_id_schedule_seatbooking">
+            <End Role="TBSchedule" EntitySet="TBSchedule" />
+            <End Role="TBSeatBooking" EntitySet="TBSeatBooking" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_seat" Association="Self.fk_id_seat">
+            <End Role="TBSeat" EntitySet="TBSeat" />
+            <End Role="TBSeatBooking" EntitySet="TBSeatBooking" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_seat_type" Association="Self.fk_id_seat_type">
+            <End Role="TBSeatType" EntitySet="TBSeatType" />
+            <End Role="TBSeat" EntitySet="TBSeat" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_shifttime" Association="Self.fk_id_shifttime">
+            <End Role="TBShifttime" EntitySet="TBShifttime" />
+            <End Role="TBShift" EntitySet="TBShift" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_staff" Association="Self.fk_id_staff">
+            <End Role="TBStaff" EntitySet="TBStaff" />
+            <End Role="TBShift" EntitySet="TBShift" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_staff_receipt" Association="Self.fk_id_staff_receipt">
+            <End Role="TBStaff" EntitySet="TBStaff" />
+            <End Role="TBReceipt" EntitySet="TBReceipt" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DoubleTCinema" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBCustomer">
+          <Key>
+            <PropertyRef Name="customer_id" />
+          </Key>
+          <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customer_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="customer_birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="customer_address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="customer_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="customer_points" Type="Int32" />
+          <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TBReceipts" Relationship="Self.fk_id_customer" FromRole="TBCustomer" ToRole="TBReceipt" />
+        </EntityType>
+        <EntityType Name="TBMovie">
+          <Key>
+            <PropertyRef Name="movie_id" />
+          </Key>
+          <Property Name="movie_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="movie_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="movie_genres_id" Type="Int32" />
+          <Property Name="movie_description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="movie_length" Type="Int32" Nullable="false" />
+          <Property Name="movie_release" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="movie_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="movie_price" Type="Int32" Nullable="false" />
+          <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TBSchedules" Relationship="Self.fk_id_movie" FromRole="TBMovie" ToRole="TBSchedule" />
+          <NavigationProperty Name="TBMovieGenre" Relationship="Self.fk_id_movie_type" FromRole="TBMovie" ToRole="TBMovieGenres" />
+        </EntityType>
+        <EntityType Name="TBMovieGenre">
+          <Key>
+            <PropertyRef Name="movie_genres_id" />
+          </Key>
+          <Property Name="movie_genres_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="movie_genres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TBMovies" Relationship="Self.fk_id_movie_type" FromRole="TBMovieGenres" ToRole="TBMovie" />
+        </EntityType>
+        <EntityType Name="TBReceipt">
+          <Key>
+            <PropertyRef Name="receipt_id" />
+          </Key>
+          <Property Name="receipt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="number_of_tickets" Type="Int32" Nullable="false" />
+          <Property Name="total_price" Type="Int32" Nullable="false" />
+          <Property Name="customer_id" Type="Int32" />
+          <Property Name="staff_id" Type="Int32" Nullable="false" />
+          <Property Name="schedule_id" Type="Int32" Nullable="false" />
+          <Property Name="datetime_booking" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="TBCustomer" Relationship="Self.fk_id_customer" FromRole="TBReceipt" ToRole="TBCustomer" />
+          <NavigationProperty Name="TBSeatBookings" Relationship="Self.fk_id_receipt" FromRole="TBReceipt" ToRole="TBSeatBooking" />
+          <NavigationProperty Name="TBSchedule" Relationship="Self.fk_id_schedule" FromRole="TBReceipt" ToRole="TBSchedule" />
+          <NavigationProperty Name="TBStaff" Relationship="Self.fk_id_staff_receipt" FromRole="TBReceipt" ToRole="TBStaff" />
+        </EntityType>
+        <EntityType Name="TBRoom">
+          <Key>
+            <PropertyRef Name="room_id" />
+          </Key>
+          <Property Name="room_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="room_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="room_number_of_seat" Type="Int32" Nullable="false" />
+          <Property Name="room_number_of_row" Type="Int32" Nullable="false" />
+          <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+          <Property Name="room_type_id" Type="Int32" />
+          <NavigationProperty Name="TBSeats" Relationship="Self.FK__TBSeat__room_id__6A30C649" FromRole="TBRoom" ToRole="TBSeat" />
+          <NavigationProperty Name="TBSchedules" Relationship="Self.fk_id_room" FromRole="TBRoom" ToRole="TBSchedule" />
+          <NavigationProperty Name="TBRoomType" Relationship="Self.fk_id_room_type" FromRole="TBRoom" ToRole="TBRoomType" />
+        </EntityType>
+        <EntityType Name="TBRoomType">
+          <Key>
+            <PropertyRef Name="room_type_id" />
+          </Key>
+          <Property Name="room_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="room_type_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="room_type_price_percent" Type="Int32" Nullable="false" />
+          <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TBRooms" Relationship="Self.fk_id_room_type" FromRole="TBRoomType" ToRole="TBRoom" />
+        </EntityType>
+        <EntityType Name="TBSchedule">
+          <Key>
+            <PropertyRef Name="schedule_id" />
+          </Key>
+          <Property Name="schedule_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="schedule_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="schedule_start" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="schedule_end" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="schedule_price_percent" Type="Int32" Nullable="false" />
+          <Property Name="movie_id" Type="Int32" />
+          <Property Name="room_id" Type="Int32" Nullable="false" />
+          <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TBMovie" Relationship="Self.fk_id_movie" FromRole="TBSchedule" ToRole="TBMovie" />
+          <NavigationProperty Name="TBReceipts" Relationship="Self.fk_id_schedule" FromRole="TBSchedule" ToRole="TBReceipt" />
+          <NavigationProperty Name="TBRoom" Relationship="Self.fk_id_room" FromRole="TBSchedule" ToRole="TBRoom" />
+          <NavigationProperty Name="TBSeatBookings" Relationship="Self.fk_id_schedule_seatbooking" FromRole="TBSchedule" ToRole="TBSeatBooking" />
+        </EntityType>
+        <EntityType Name="TBSeat">
+          <Key>
+            <PropertyRef Name="seat_id" />
+          </Key>
+          <Property Name="seat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="seat_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="room_id" Type="Int32" Nullable="false" />
+          <Property Name="seat_type_id" Type="Int32" />
+          <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TBRoom" Relationship="Self.FK__TBSeat__room_id__6A30C649" FromRole="TBSeat" ToRole="TBRoom" />
+          <NavigationProperty Name="TBSeatBookings" Relationship="Self.fk_id_seat" FromRole="TBSeat" ToRole="TBSeatBooking" />
+          <NavigationProperty Name="TBSeatType" Relationship="Self.fk_id_seat_type" FromRole="TBSeat" ToRole="TBSeatType" />
+        </EntityType>
+        <EntityType Name="TBSeatBooking">
+          <Key>
+            <PropertyRef Name="seat_booking_id" />
+          </Key>
+          <Property Name="seat_booking_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="schedule_id" Type="Int32" />
+          <Property Name="seat_id" Type="Int32" Nullable="false" />
+          <Property Name="receipt_id" Type="Int32" Nullable="false" />
+          <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TBReceipt" Relationship="Self.fk_id_receipt" FromRole="TBSeatBooking" ToRole="TBReceipt" />
+          <NavigationProperty Name="TBSchedule" Relationship="Self.fk_id_schedule_seatbooking" FromRole="TBSeatBooking" ToRole="TBSchedule" />
+          <NavigationProperty Name="TBSeat" Relationship="Self.fk_id_seat" FromRole="TBSeatBooking" ToRole="TBSeat" />
+        </EntityType>
+        <EntityType Name="TBSeatType">
+          <Key>
+            <PropertyRef Name="seat_type_id" />
+          </Key>
+          <Property Name="seat_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="seat_type_name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="seat_type_price_percent" Type="Int32" Nullable="false" />
+          <Property Name="seat_type_color" Type="Int32" Nullable="false" />
+          <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TBSeats" Relationship="Self.fk_id_seat_type" FromRole="TBSeatType" ToRole="TBSeat" />
+        </EntityType>
+        <EntityType Name="TBShift">
+          <Key>
+            <PropertyRef Name="shift_id" />
+          </Key>
+          <Property Name="shift_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="shift_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="shifttime_id" Type="Int32" />
+          <Property Name="staff_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TBShifttime" Relationship="Self.fk_id_shifttime" FromRole="TBShift" ToRole="TBShifttime" />
+          <NavigationProperty Name="TBStaff" Relationship="Self.fk_id_staff" FromRole="TBShift" ToRole="TBStaff" />
+        </EntityType>
+        <EntityType Name="TBShifttime">
+          <Key>
+            <PropertyRef Name="shifttime_id" />
+          </Key>
+          <Property Name="shifttime_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="shift_start" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="shift_end" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TBShifts" Relationship="Self.fk_id_shifttime" FromRole="TBShifttime" ToRole="TBShift" />
+        </EntityType>
+        <EntityType Name="TBStaff">
+          <Key>
+            <PropertyRef Name="staff_id" />
+          </Key>
+          <Property Name="staff_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="staff_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pwd" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="staff_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="role" Type="Boolean" Nullable="false" />
+          <Property Name="is_deleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TBReceipts" Relationship="Self.fk_id_staff_receipt" FromRole="TBStaff" ToRole="TBReceipt" />
+          <NavigationProperty Name="TBShifts" Relationship="Self.fk_id_staff" FromRole="TBStaff" ToRole="TBShift" />
+        </EntityType>
+        <Association Name="fk_id_customer">
+          <End Role="TBCustomer" Type="Self.TBCustomer" Multiplicity="0..1" />
+          <End Role="TBReceipt" Type="Self.TBReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBCustomer">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="TBReceipt">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_movie">
+          <End Role="TBMovie" Type="Self.TBMovie" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TBSchedule" Type="Self.TBSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBMovie">
+              <PropertyRef Name="movie_id" />
+            </Principal>
+            <Dependent Role="TBSchedule">
+              <PropertyRef Name="movie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_movie_type">
+          <End Role="TBMovieGenres" Type="Self.TBMovieGenre" Multiplicity="0..1" />
+          <End Role="TBMovie" Type="Self.TBMovie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBMovieGenres">
+              <PropertyRef Name="movie_genres_id" />
+            </Principal>
+            <Dependent Role="TBMovie">
+              <PropertyRef Name="movie_genres_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_receipt">
+          <End Role="TBReceipt" Type="Self.TBReceipt" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TBSeatBooking" Type="Self.TBSeatBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBReceipt">
+              <PropertyRef Name="receipt_id" />
+            </Principal>
+            <Dependent Role="TBSeatBooking">
+              <PropertyRef Name="receipt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_schedule">
+          <End Role="TBSchedule" Type="Self.TBSchedule" Multiplicity="1" />
+          <End Role="TBReceipt" Type="Self.TBReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBSchedule">
+              <PropertyRef Name="schedule_id" />
+            </Principal>
+            <Dependent Role="TBReceipt">
+              <PropertyRef Name="schedule_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_staff_receipt">
+          <End Role="TBStaff" Type="Self.TBStaff" Multiplicity="1" />
+          <End Role="TBReceipt" Type="Self.TBReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBStaff">
+              <PropertyRef Name="staff_id" />
+            </Principal>
+            <Dependent Role="TBReceipt">
+              <PropertyRef Name="staff_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBSeat__room_id__6A30C649">
+          <End Role="TBRoom" Type="Self.TBRoom" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TBSeat" Type="Self.TBSeat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBRoom">
+              <PropertyRef Name="room_id" />
+            </Principal>
+            <Dependent Role="TBSeat">
+              <PropertyRef Name="room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_room">
+          <End Role="TBRoom" Type="Self.TBRoom" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TBSchedule" Type="Self.TBSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBRoom">
+              <PropertyRef Name="room_id" />
+            </Principal>
+            <Dependent Role="TBSchedule">
+              <PropertyRef Name="room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_room_type">
+          <End Role="TBRoomType" Type="Self.TBRoomType" Multiplicity="0..1" />
+          <End Role="TBRoom" Type="Self.TBRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBRoomType">
+              <PropertyRef Name="room_type_id" />
+            </Principal>
+            <Dependent Role="TBRoom">
+              <PropertyRef Name="room_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_schedule_seatbooking">
+          <End Role="TBSchedule" Type="Self.TBSchedule" Multiplicity="0..1" />
+          <End Role="TBSeatBooking" Type="Self.TBSeatBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBSchedule">
+              <PropertyRef Name="schedule_id" />
+            </Principal>
+            <Dependent Role="TBSeatBooking">
+              <PropertyRef Name="schedule_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_seat">
+          <End Role="TBSeat" Type="Self.TBSeat" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TBSeatBooking" Type="Self.TBSeatBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBSeat">
+              <PropertyRef Name="seat_id" />
+            </Principal>
+            <Dependent Role="TBSeatBooking">
+              <PropertyRef Name="seat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_seat_type">
+          <End Role="TBSeatType" Type="Self.TBSeatType" Multiplicity="0..1" />
+          <End Role="TBSeat" Type="Self.TBSeat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBSeatType">
+              <PropertyRef Name="seat_type_id" />
+            </Principal>
+            <Dependent Role="TBSeat">
+              <PropertyRef Name="seat_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_shifttime">
+          <End Role="TBShifttime" Type="Self.TBShifttime" Multiplicity="0..1" />
+          <End Role="TBShift" Type="Self.TBShift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBShifttime">
+              <PropertyRef Name="shifttime_id" />
+            </Principal>
+            <Dependent Role="TBShift">
+              <PropertyRef Name="shifttime_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_id_staff">
+          <End Role="TBStaff" Type="Self.TBStaff" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TBShift" Type="Self.TBShift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBStaff">
+              <PropertyRef Name="staff_id" />
+            </Principal>
+            <Dependent Role="TBShift">
+              <PropertyRef Name="staff_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DoubleT" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBCustomers" EntityType="Self.TBCustomer" />
+          <EntitySet Name="TBMovies" EntityType="Self.TBMovie" />
+          <EntitySet Name="TBMovieGenres" EntityType="Self.TBMovieGenre" />
+          <EntitySet Name="TBReceipts" EntityType="Self.TBReceipt" />
+          <EntitySet Name="TBRooms" EntityType="Self.TBRoom" />
+          <EntitySet Name="TBRoomTypes" EntityType="Self.TBRoomType" />
+          <EntitySet Name="TBSchedules" EntityType="Self.TBSchedule" />
+          <EntitySet Name="TBSeats" EntityType="Self.TBSeat" />
+          <EntitySet Name="TBSeatBookings" EntityType="Self.TBSeatBooking" />
+          <EntitySet Name="TBSeatTypes" EntityType="Self.TBSeatType" />
+          <EntitySet Name="TBShifts" EntityType="Self.TBShift" />
+          <EntitySet Name="TBShifttimes" EntityType="Self.TBShifttime" />
+          <EntitySet Name="TBStaffs" EntityType="Self.TBStaff" />
+          <AssociationSet Name="fk_id_customer" Association="Self.fk_id_customer">
+            <End Role="TBCustomer" EntitySet="TBCustomers" />
+            <End Role="TBReceipt" EntitySet="TBReceipts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_movie" Association="Self.fk_id_movie">
+            <End Role="TBMovie" EntitySet="TBMovies" />
+            <End Role="TBSchedule" EntitySet="TBSchedules" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_movie_type" Association="Self.fk_id_movie_type">
+            <End Role="TBMovieGenres" EntitySet="TBMovieGenres" />
+            <End Role="TBMovie" EntitySet="TBMovies" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_receipt" Association="Self.fk_id_receipt">
+            <End Role="TBReceipt" EntitySet="TBReceipts" />
+            <End Role="TBSeatBooking" EntitySet="TBSeatBookings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_schedule" Association="Self.fk_id_schedule">
+            <End Role="TBSchedule" EntitySet="TBSchedules" />
+            <End Role="TBReceipt" EntitySet="TBReceipts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_staff_receipt" Association="Self.fk_id_staff_receipt">
+            <End Role="TBStaff" EntitySet="TBStaffs" />
+            <End Role="TBReceipt" EntitySet="TBReceipts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBSeat__room_id__6A30C649" Association="Self.FK__TBSeat__room_id__6A30C649">
+            <End Role="TBRoom" EntitySet="TBRooms" />
+            <End Role="TBSeat" EntitySet="TBSeats" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_room" Association="Self.fk_id_room">
+            <End Role="TBRoom" EntitySet="TBRooms" />
+            <End Role="TBSchedule" EntitySet="TBSchedules" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_room_type" Association="Self.fk_id_room_type">
+            <End Role="TBRoomType" EntitySet="TBRoomTypes" />
+            <End Role="TBRoom" EntitySet="TBRooms" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_schedule_seatbooking" Association="Self.fk_id_schedule_seatbooking">
+            <End Role="TBSchedule" EntitySet="TBSchedules" />
+            <End Role="TBSeatBooking" EntitySet="TBSeatBookings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_seat" Association="Self.fk_id_seat">
+            <End Role="TBSeat" EntitySet="TBSeats" />
+            <End Role="TBSeatBooking" EntitySet="TBSeatBookings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_seat_type" Association="Self.fk_id_seat_type">
+            <End Role="TBSeatType" EntitySet="TBSeatTypes" />
+            <End Role="TBSeat" EntitySet="TBSeats" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_shifttime" Association="Self.fk_id_shifttime">
+            <End Role="TBShifttime" EntitySet="TBShifttimes" />
+            <End Role="TBShift" EntitySet="TBShifts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_id_staff" Association="Self.fk_id_staff">
+            <End Role="TBStaff" EntitySet="TBStaffs" />
+            <End Role="TBShift" EntitySet="TBShifts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DoubleTCinemaStoreContainer" CdmEntityContainer="DoubleT">
+          <EntitySetMapping Name="TBCustomers">
+            <EntityTypeMapping TypeName="DoubleTCinema.TBCustomer">
+              <MappingFragment StoreEntitySet="TBCustomer">
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+                <ScalarProperty Name="customer_birthday" ColumnName="customer_birthday" />
+                <ScalarProperty Name="customer_address" ColumnName="customer_address" />
+                <ScalarProperty Name="customer_phone" ColumnName="customer_phone" />
+                <ScalarProperty Name="customer_points" ColumnName="customer_points" />
+                <ScalarProperty Name="is_deleted" ColumnName="is_deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBMovies">
+            <EntityTypeMapping TypeName="DoubleTCinema.TBMovie">
+              <MappingFragment StoreEntitySet="TBMovie">
+                <ScalarProperty Name="movie_id" ColumnName="movie_id" />
+                <ScalarProperty Name="movie_name" ColumnName="movie_name" />
+                <ScalarProperty Name="movie_genres_id" ColumnName="movie_genres_id" />
+                <ScalarProperty Name="movie_description" ColumnName="movie_description" />
+                <ScalarProperty Name="movie_length" ColumnName="movie_length" />
+                <ScalarProperty Name="movie_release" ColumnName="movie_release" />
+                <ScalarProperty Name="movie_image" ColumnName="movie_image" />
+                <ScalarProperty Name="movie_price" ColumnName="movie_price" />
+                <ScalarProperty Name="is_deleted" ColumnName="is_deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBMovieGenres">
+            <EntityTypeMapping TypeName="DoubleTCinema.TBMovieGenre">
+              <MappingFragment StoreEntitySet="TBMovieGenres">
+                <ScalarProperty Name="movie_genres_id" ColumnName="movie_genres_id" />
+                <ScalarProperty Name="movie_genres" ColumnName="movie_genres" />
+                <ScalarProperty Name="is_deleted" ColumnName="is_deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBReceipts">
+            <EntityTypeMapping TypeName="DoubleTCinema.TBReceipt">
+              <MappingFragment StoreEntitySet="TBReceipt">
+                <ScalarProperty Name="receipt_id" ColumnName="receipt_id" />
+                <ScalarProperty Name="number_of_tickets" ColumnName="number_of_tickets" />
+                <ScalarProperty Name="total_price" ColumnName="total_price" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="staff_id" ColumnName="staff_id" />
+                <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
+                <ScalarProperty Name="datetime_booking" ColumnName="datetime_booking" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBRooms">
+            <EntityTypeMapping TypeName="DoubleTCinema.TBRoom">
+              <MappingFragment StoreEntitySet="TBRoom">
+                <ScalarProperty Name="room_id" ColumnName="room_id" />
+                <ScalarProperty Name="room_name" ColumnName="room_name" />
+                <ScalarProperty Name="room_number_of_seat" ColumnName="room_number_of_seat" />
+                <ScalarProperty Name="room_number_of_row" ColumnName="room_number_of_row" />
+                <ScalarProperty Name="is_deleted" ColumnName="is_deleted" />
+                <ScalarProperty Name="room_type_id" ColumnName="room_type_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBRoomTypes">
+            <EntityTypeMapping TypeName="DoubleTCinema.TBRoomType">
+              <MappingFragment StoreEntitySet="TBRoomType">
+                <ScalarProperty Name="room_type_id" ColumnName="room_type_id" />
+                <ScalarProperty Name="room_type_name" ColumnName="room_type_name" />
+                <ScalarProperty Name="room_type_price_percent" ColumnName="room_type_price_percent" />
+                <ScalarProperty Name="is_deleted" ColumnName="is_deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBSchedules">
+            <EntityTypeMapping TypeName="DoubleTCinema.TBSchedule">
+              <MappingFragment StoreEntitySet="TBSchedule">
+                <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
+                <ScalarProperty Name="schedule_date" ColumnName="schedule_date" />
+                <ScalarProperty Name="schedule_start" ColumnName="schedule_start" />
+                <ScalarProperty Name="schedule_end" ColumnName="schedule_end" />
+                <ScalarProperty Name="schedule_price_percent" ColumnName="schedule_price_percent" />
+                <ScalarProperty Name="movie_id" ColumnName="movie_id" />
+                <ScalarProperty Name="room_id" ColumnName="room_id" />
+                <ScalarProperty Name="is_deleted" ColumnName="is_deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBSeats">
+            <EntityTypeMapping TypeName="DoubleTCinema.TBSeat">
+              <MappingFragment StoreEntitySet="TBSeat">
+                <ScalarProperty Name="seat_id" ColumnName="seat_id" />
+                <ScalarProperty Name="seat_name" ColumnName="seat_name" />
+                <ScalarProperty Name="room_id" ColumnName="room_id" />
+                <ScalarProperty Name="seat_type_id" ColumnName="seat_type_id" />
+                <ScalarProperty Name="is_deleted" ColumnName="is_deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBSeatBookings">
+            <EntityTypeMapping TypeName="DoubleTCinema.TBSeatBooking">
+              <MappingFragment StoreEntitySet="TBSeatBooking">
+                <ScalarProperty Name="seat_booking_id" ColumnName="seat_booking_id" />
+                <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
+                <ScalarProperty Name="seat_id" ColumnName="seat_id" />
+                <ScalarProperty Name="receipt_id" ColumnName="receipt_id" />
+                <ScalarProperty Name="is_deleted" ColumnName="is_deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBSeatTypes">
+            <EntityTypeMapping TypeName="DoubleTCinema.TBSeatType">
+              <MappingFragment StoreEntitySet="TBSeatType">
+                <ScalarProperty Name="seat_type_id" ColumnName="seat_type_id" />
+                <ScalarProperty Name="seat_type_name" ColumnName="seat_type_name" />
+                <ScalarProperty Name="seat_type_price_percent" ColumnName="seat_type_price_percent" />
+                <ScalarProperty Name="seat_type_color" ColumnName="seat_type_color" />
+                <ScalarProperty Name="is_deleted" ColumnName="is_deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBShifts">
+            <EntityTypeMapping TypeName="DoubleTCinema.TBShift">
+              <MappingFragment StoreEntitySet="TBShift">
+                <ScalarProperty Name="shift_id" ColumnName="shift_id" />
+                <ScalarProperty Name="shift_date" ColumnName="shift_date" />
+                <ScalarProperty Name="shifttime_id" ColumnName="shifttime_id" />
+                <ScalarProperty Name="staff_id" ColumnName="staff_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBShifttimes">
+            <EntityTypeMapping TypeName="DoubleTCinema.TBShifttime">
+              <MappingFragment StoreEntitySet="TBShifttime">
+                <ScalarProperty Name="shifttime_id" ColumnName="shifttime_id" />
+                <ScalarProperty Name="shift_start" ColumnName="shift_start" />
+                <ScalarProperty Name="shift_end" ColumnName="shift_end" />
+                <ScalarProperty Name="is_deleted" ColumnName="is_deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBStaffs">
+            <EntityTypeMapping TypeName="DoubleTCinema.TBStaff">
+              <MappingFragment StoreEntitySet="TBStaff">
+                <ScalarProperty Name="staff_id" ColumnName="staff_id" />
+                <ScalarProperty Name="staff_name" ColumnName="staff_name" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pwd" ColumnName="pwd" />
+                <ScalarProperty Name="staff_phone" ColumnName="staff_phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="is_deleted" ColumnName="is_deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

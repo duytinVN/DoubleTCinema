@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoubleTCinema", "DoubleTCinema.csproj", "{D24D9AC9-36E1-4527-A2BF-48FC5727188D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "..\BLL\BLL.csproj", "{1520D66E-7926-48CB-80FC-74C13CB02D4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D24D9AC9-36E1-4527-A2BF-48FC5727188D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D24D9AC9-36E1-4527-A2BF-48FC5727188D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D24D9AC9-36E1-4527-A2BF-48FC5727188D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D24D9AC9-36E1-4527-A2BF-48FC5727188D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1520D66E-7926-48CB-80FC-74C13CB02D4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1520D66E-7926-48CB-80FC-74C13CB02D4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1520D66E-7926-48CB-80FC-74C13CB02D4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1520D66E-7926-48CB-80FC-74C13CB02D4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1026B1B2-FDB8-4488-BF7E-BA416953CB7E}
+	EndGlobalSection
+EndGlobal
