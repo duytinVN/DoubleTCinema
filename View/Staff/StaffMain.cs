@@ -1,4 +1,4 @@
-﻿using DoubleTCinema.DAL;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ namespace DoubleTCinema.View.Staff
 {
     public partial class StaffMain : Form
     {
-        TBStaff staff=null;
+        //TBStaff staff=null;
         public StaffMain()
         {
             InitializeComponent();
@@ -22,8 +22,8 @@ namespace DoubleTCinema.View.Staff
         public StaffMain(int Staff_Id)
         {
             InitializeComponent();
-            DoubleT db=new DoubleT();
-            staff=db.TBStaffs.Where(p=>p.staff_id==Staff_Id).FirstOrDefault();
+            //DoubleT db=new DoubleT();
+            //staff=db.TBStaffs.Where(p=>p.staff_id==Staff_Id).FirstOrDefault();
             
         }
         private void gunaPictureBox1_Click(object sender, EventArgs e)

@@ -11,50 +11,50 @@ using System.Windows.Forms;
 using System.Net.Mail;
 using System.Net;
 using DoubleTCinema.View.Login;
-using DoubleTCinema.DAL;
+
 
 namespace DoubleTCinema
 {
 
     public partial class ucVerification : UserControl
     {
-        TBStaff staff;
+        //TBStaff staff;
         int Rand;
         public ucVerification(string email)
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
-            lblResult.Visible = false;
+            //this.Dock = DockStyle.Fill;
+            //lblResult.Visible = false;
            
-            //txtVerification.Text = email;
-            Random ran= new Random();
-            Rand=ran.Next(1000,9999);
-            txtVerification.Text = Rand.ToString();
+            ////txtVerification.Text = email;
+            //Random ran= new Random();
+            //Rand=ran.Next(1000,9999);
+            //txtVerification.Text = Rand.ToString();
             
-            DoubleT db=new DoubleT();
-            staff=db.TBStaffs.Where(p=>p.email==email).FirstOrDefault();
-            GuiMaXacNhan(email);
+            //DoubleT db=new DoubleT();
+            //staff=db.TBStaffs.Where(p=>p.email==email).FirstOrDefault();
+            //GuiMaXacNhan(email);
         }
         public ucVerification()
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
-            lblResult.Visible = false;
+            //this.Dock = DockStyle.Fill;
+            //lblResult.Visible = false;
         }
         
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            if(txtVerification.Text!=Rand.ToString())
-            {
-                lblResult.Visible = true;
-            }
-            else
-            {
-                Panel panel=(Panel)this.Parent;
-                panel.Controls.Remove(this);
-                panel.Controls.Add(new ucResetPassword(staff.staff_id));
-                this.Dispose();
-            }
+            //if(txtVerification.Text!=Rand.ToString())
+            //{
+            //    lblResult.Visible = true;
+            //}
+            //else
+            //{
+            //    Panel panel=(Panel)this.Parent;
+            //    panel.Controls.Remove(this);
+            //    panel.Controls.Add(new ucResetPassword(staff.staff_id));
+            //    this.Dispose();
+            //}
         }
         public void GuiMaXacNhan(string email)
         {

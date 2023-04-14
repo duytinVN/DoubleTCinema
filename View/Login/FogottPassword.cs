@@ -1,4 +1,4 @@
-﻿using DoubleTCinema.DAL;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,35 +31,35 @@ namespace DoubleTCinema
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            if(txtEmail.Text=="")
-            {
-                lblResult.Text = "Vui lòng nhập email";
-                if(lblResult.Visible==false)
-                {
-                    lblResult.Visible = true;
-                }
-            }
-            else
-            {
-                DoubleT db = new DoubleT();
-                TBStaff staff=new TBStaff();
-                staff=db.TBStaffs.Where(p=>p.email.ToString().Trim()==txtEmail.Text).FirstOrDefault();
-                if (staff != null)
-                {
-                    Panel panel=(Panel)this.Parent;
-                    panel.Controls.Remove(this);
-                    panel.Controls.Add(new ucVerification(txtEmail.Text));
-                    this.Dispose();
-                }
-                else
-                {
-                    lblResult.Text = "Không tìm thấy tài khoản tương ứng với email trên";
-                    if(lblResult.Visible == false)
-                    {
-                        lblResult.Visible = true;
-                    }    
-                }
-            }
+            //if(txtEmail.Text=="")
+            //{
+            //    lblResult.Text = "Vui lòng nhập email";
+            //    if(lblResult.Visible==false)
+            //    {
+            //        lblResult.Visible = true;
+            //    }
+            //}
+            //else
+            //{
+            //    DoubleT db = new DoubleT();
+            //    TBStaff staff=new TBStaff();
+            //    staff=db.TBStaffs.Where(p=>p.email.ToString().Trim()==txtEmail.Text).FirstOrDefault();
+            //    if (staff != null)
+            //    {
+            //        Panel panel=(Panel)this.Parent;
+            //        panel.Controls.Remove(this);
+            //        panel.Controls.Add(new ucVerification(txtEmail.Text));
+            //        this.Dispose();
+            //    }
+            //    else
+            //    {
+            //        lblResult.Text = "Không tìm thấy tài khoản tương ứng với email trên";
+            //        if(lblResult.Visible == false)
+            //        {
+            //            lblResult.Visible = true;
+            //        }    
+            //    }
+            //}
         }
     }
 }

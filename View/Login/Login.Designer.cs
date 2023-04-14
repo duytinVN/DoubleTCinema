@@ -139,7 +139,7 @@
             this.lblFogotPassword.Size = new System.Drawing.Size(203, 35);
             this.lblFogotPassword.TabIndex = 6;
             this.lblFogotPassword.Text = "Quên mật khẩu";
-            this.lblFogotPassword.Click += new System.EventHandler(this.lblFogotPassword_Click);
+            
             // 
             // pbPassword
             // 
