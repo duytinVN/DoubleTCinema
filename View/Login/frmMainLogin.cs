@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace DoubleTCinema
 {
-    public partial class MainLogin : Form
+    public partial class frmMainLogin : Form
     {
        
 
-        public MainLogin()
+        public frmMainLogin()
         {
             InitializeComponent();
             pnMain.Controls.Add(new ucLogin());
@@ -46,7 +46,7 @@ namespace DoubleTCinema
         public void CloseAndNewForm(int Id)
         {
             
-            StaffMain frm= new StaffMain(Id);
+            frmStaffMain frm= new frmStaffMain(Id);
             frm.Show();
             this.Visible = false;
             

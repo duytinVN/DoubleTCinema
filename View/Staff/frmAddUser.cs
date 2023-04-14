@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DoubleTCinema.View.Staff
 {
-    public partial class AddUser : Form
+    public partial class frmAddUser : Form
     {
-        public AddUser()
+        public frmAddUser()
         {
             InitializeComponent();
         }

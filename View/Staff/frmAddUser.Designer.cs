@@ -1,6 +1,6 @@
 ﻿namespace DoubleTCinema.View.Staff
 {
-    partial class AddUser
+    partial class frmAddUser
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.txtPhoneUsers = new Guna.UI.WinForms.GunaLineTextBox();
             this.txtAddressUser = new Guna.UI.WinForms.GunaLineTextBox();
             this.txtBirthday = new Guna.UI.WinForms.GunaLineTextBox();
@@ -39,33 +41,64 @@
             this.lblBirthday = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Panel1.SuspendLayout();
+            this.pnMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // guna2Panel1
+            // pnMain
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.White;
-            this.guna2Panel1.BorderColor = System.Drawing.Color.Silver;
-            this.guna2Panel1.BorderRadius = 2;
-            this.guna2Panel1.BorderThickness = 2;
-            this.guna2Panel1.Controls.Add(this.btnCancel);
-            this.guna2Panel1.Controls.Add(this.btnSave);
-            this.guna2Panel1.Controls.Add(this.txtPhoneUsers);
-            this.guna2Panel1.Controls.Add(this.txtAddressUser);
-            this.guna2Panel1.Controls.Add(this.txtBirthday);
-            this.guna2Panel1.Controls.Add(this.txtName);
-            this.guna2Panel1.Controls.Add(this.lblPhone);
-            this.guna2Panel1.Controls.Add(this.lblAddress);
-            this.guna2Panel1.Controls.Add(this.lblBirthday);
-            this.guna2Panel1.Controls.Add(this.lblName);
-            this.guna2Panel1.Location = new System.Drawing.Point(-1, 79);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(901, 424);
-            this.guna2Panel1.TabIndex = 0;
+            this.pnMain.BackColor = System.Drawing.Color.White;
+            this.pnMain.BorderColor = System.Drawing.Color.Silver;
+            this.pnMain.BorderRadius = 2;
+            this.pnMain.BorderThickness = 2;
+            this.pnMain.Controls.Add(this.btnCancel);
+            this.pnMain.Controls.Add(this.btnSave);
+            this.pnMain.Controls.Add(this.txtPhoneUsers);
+            this.pnMain.Controls.Add(this.txtAddressUser);
+            this.pnMain.Controls.Add(this.txtBirthday);
+            this.pnMain.Controls.Add(this.txtName);
+            this.pnMain.Controls.Add(this.lblPhone);
+            this.pnMain.Controls.Add(this.lblAddress);
+            this.pnMain.Controls.Add(this.lblBirthday);
+            this.pnMain.Controls.Add(this.lblName);
+            this.pnMain.Location = new System.Drawing.Point(-1, 79);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.ShadowDecoration.Parent = this.pnMain;
+            this.pnMain.Size = new System.Drawing.Size(901, 424);
+            this.pnMain.TabIndex = 0;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BorderRadius = 15;
+            this.btnCancel.CheckedState.Parent = this.btnCancel;
+            this.btnCancel.CustomImages.Parent = this.btnCancel;
+            this.btnCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(149)))));
+            this.btnCancel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.HoverState.Parent = this.btnCancel;
+            this.btnCancel.Location = new System.Drawing.Point(629, 364);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
+            this.btnCancel.Size = new System.Drawing.Size(105, 45);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "Huỷ";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BorderRadius = 15;
+            this.btnSave.CheckedState.Parent = this.btnSave;
+            this.btnSave.CustomImages.Parent = this.btnSave;
+            this.btnSave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(112)))), ((int)(((byte)(182)))));
+            this.btnSave.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.HoverState.Parent = this.btnSave;
+            this.btnSave.Location = new System.Drawing.Point(772, 364);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.ShadowDecoration.Parent = this.btnSave;
+            this.btnSave.Size = new System.Drawing.Size(105, 45);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "Lưu";
             // 
             // txtPhoneUsers
             // 
@@ -177,59 +210,26 @@
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Thông tin khách hàng";
             // 
-            // btnSave
-            // 
-            this.btnSave.BorderRadius = 15;
-            this.btnSave.CheckedState.Parent = this.btnSave;
-            this.btnSave.CustomImages.Parent = this.btnSave;
-            this.btnSave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(112)))), ((int)(((byte)(182)))));
-            this.btnSave.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.HoverState.Parent = this.btnSave;
-            this.btnSave.Location = new System.Drawing.Point(772, 364);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.ShadowDecoration.Parent = this.btnSave;
-            this.btnSave.Size = new System.Drawing.Size(105, 45);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "Lưu";
-            // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 15;
             this.guna2Elipse1.TargetControl = this;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.BorderRadius = 15;
-            this.btnCancel.CheckedState.Parent = this.btnCancel;
-            this.btnCancel.CustomImages.Parent = this.btnCancel;
-            this.btnCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(149)))));
-            this.btnCancel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.HoverState.Parent = this.btnCancel;
-            this.btnCancel.Location = new System.Drawing.Point(629, 364);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
-            this.btnCancel.Size = new System.Drawing.Size(105, 45);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Huỷ";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // AddUser
+            // frmAddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(900, 500);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.pnMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "AddUser";
+            this.Name = "frmAddUser";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddUser";
-            this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
+            this.pnMain.ResumeLayout(false);
+            this.pnMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,7 +237,7 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Panel pnMain;
         private Guna.UI.WinForms.GunaLineTextBox txtName;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblPhone;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblAddress;

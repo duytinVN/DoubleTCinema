@@ -17,7 +17,7 @@ namespace DoubleTCinema
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainLogin());
+            Application.Run(new frmMainLogin());
         }
     }
 }

@@ -29,6 +29,7 @@ namespace DAL1
         public byte[] movie_image { get; set; }
         public int movie_price { get; set; }
         public bool is_deleted { get; set; }
+        public string movie_director { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBSchedule> TBSchedules { get; set; }

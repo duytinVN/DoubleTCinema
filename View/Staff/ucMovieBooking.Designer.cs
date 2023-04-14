@@ -1,6 +1,6 @@
 ﻿namespace DoubleTCinema.View.Staff
 {
-    partial class MovieBooking
+    partial class ucMovieBooking
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,17 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieBooking));
             this.lblTitle = new Guna.UI.WinForms.GunaLabel();
-            this.pbSearch = new System.Windows.Forms.PictureBox();
             this.txtSearch = new Guna.UI.WinForms.GunaLineTextBox();
-            this.pbcombo = new Guna.UI.WinForms.GunaPictureBox();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cboCategory = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dpkTime = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.pnMovie = new Guna.UI.WinForms.GunaLinePanel();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
+            this.pbcombo = new Guna.UI.WinForms.GunaPictureBox();
+            this.pbSearch = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbcombo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -51,16 +49,6 @@
             this.lblTitle.Size = new System.Drawing.Size(262, 36);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Phim đang chiếu";
-            // 
-            // pbSearch
-            // 
-            this.pbSearch.Image = ((System.Drawing.Image)(resources.GetObject("pbSearch.Image")));
-            this.pbSearch.Location = new System.Drawing.Point(27, 78);
-            this.pbSearch.Name = "pbSearch";
-            this.pbSearch.Size = new System.Drawing.Size(30, 30);
-            this.pbSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbSearch.TabIndex = 1;
-            this.pbSearch.TabStop = false;
             // 
             // txtSearch
             // 
@@ -77,38 +65,27 @@
             this.txtSearch.TabIndex = 2;
             this.txtSearch.Text = "Tìm kiếm phim";
             // 
-            // pbcombo
+            // cboCategory
             // 
-            this.pbcombo.BaseColor = System.Drawing.Color.White;
-            this.pbcombo.Image = ((System.Drawing.Image)(resources.GetObject("pbcombo.Image")));
-            this.pbcombo.Location = new System.Drawing.Point(377, 78);
-            this.pbcombo.Name = "pbcombo";
-            this.pbcombo.Size = new System.Drawing.Size(30, 30);
-            this.pbcombo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbcombo.TabIndex = 3;
-            this.pbcombo.TabStop = false;
-            // 
-            // guna2ComboBox1
-            // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderThickness = 0;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.DropDownWidth = 199;
-            this.guna2ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.Empty;
-            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Times New Roman", 15.75F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.FormattingEnabled = true;
-            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(427, 75);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Size = new System.Drawing.Size(179, 36);
-            this.guna2ComboBox1.TabIndex = 4;
+            this.cboCategory.BackColor = System.Drawing.Color.Transparent;
+            this.cboCategory.BorderThickness = 0;
+            this.cboCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategory.DropDownWidth = 199;
+            this.cboCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboCategory.FocusedColor = System.Drawing.Color.Empty;
+            this.cboCategory.FocusedState.Parent = this.cboCategory;
+            this.cboCategory.Font = new System.Drawing.Font("Times New Roman", 15.75F);
+            this.cboCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.HoverState.Parent = this.cboCategory;
+            this.cboCategory.ItemHeight = 30;
+            this.cboCategory.ItemsAppearance.Parent = this.cboCategory;
+            this.cboCategory.Location = new System.Drawing.Point(427, 75);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.ShadowDecoration.Parent = this.cboCategory;
+            this.cboCategory.Size = new System.Drawing.Size(179, 36);
+            this.cboCategory.TabIndex = 4;
             // 
             // dpkTime
             // 
@@ -137,33 +114,44 @@
             this.pnMovie.Size = new System.Drawing.Size(980, 530);
             this.pnMovie.TabIndex = 6;
             // 
-            // button1
+            // pbcombo
             // 
-            this.button1.Location = new System.Drawing.Point(654, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.pbcombo.BaseColor = System.Drawing.Color.White;
+            this.pbcombo.Image = global::DoubleTCinema.Properties.Resources.icons8_funnel_50;
+            this.pbcombo.Location = new System.Drawing.Point(377, 78);
+            this.pbcombo.Name = "pbcombo";
+            this.pbcombo.Size = new System.Drawing.Size(30, 30);
+            this.pbcombo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbcombo.TabIndex = 3;
+            this.pbcombo.TabStop = false;
             // 
-            // MovieBooking
+            // pbSearch
+            // 
+            this.pbSearch.Image = global::DoubleTCinema.Properties.Resources.icons8_search_24;
+            this.pbSearch.Location = new System.Drawing.Point(27, 78);
+            this.pbSearch.Name = "pbSearch";
+            this.pbSearch.Size = new System.Drawing.Size(30, 30);
+            this.pbSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSearch.TabIndex = 1;
+            this.pbSearch.TabStop = false;
+            // 
+            // ucMovieBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pnMovie);
             this.Controls.Add(this.dpkTime);
-            this.Controls.Add(this.guna2ComboBox1);
+            this.Controls.Add(this.cboCategory);
             this.Controls.Add(this.pbcombo);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.pbSearch);
             this.Controls.Add(this.lblTitle);
-            this.Name = "MovieBooking";
+            this.Name = "ucMovieBooking";
             this.Size = new System.Drawing.Size(980, 650);
-            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
+            
             ((System.ComponentModel.ISupportInitialize)(this.pbcombo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,9 +163,8 @@
         private System.Windows.Forms.PictureBox pbSearch;
         private Guna.UI.WinForms.GunaLineTextBox txtSearch;
         private Guna.UI.WinForms.GunaPictureBox pbcombo;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2ComboBox cboCategory;
         private Guna.UI2.WinForms.Guna2DateTimePicker dpkTime;
         private Guna.UI.WinForms.GunaLinePanel pnMovie;
-        private System.Windows.Forms.Button button1;
     }
 }

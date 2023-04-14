@@ -10,16 +10,13 @@ using System.Windows.Forms;
 
 namespace DoubleTCinema.View.Staff
 {
-    public partial class MovieBooking : UserControl
+    public partial class ucMovieBooking : UserControl
     {
-        public MovieBooking()
+        public ucMovieBooking()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
     }
 }

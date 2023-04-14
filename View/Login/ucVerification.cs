@@ -19,7 +19,7 @@ namespace DoubleTCinema
     public partial class ucVerification : UserControl
     {
         //TBStaff staff;
-        int Rand;
+        //int Rand;
         public ucVerification(string email)
         {
             InitializeComponent();
@@ -72,39 +72,39 @@ namespace DoubleTCinema
 
 
             //server.Send(mail);
-            try
-            {
-                var fromAddress = new MailAddress("caotuankhai1902@gmail.com");
-                var toAddress = new MailAddress(email);
-                const string pass = "khai12345678";
-                const string subject = "Gửi mã xác nhận";
-                string body = Rand.ToString();
+            //try
+            //{
+            //    var fromAddress = new MailAddress("caotuankhai1902@gmail.com");
+            //    var toAddress = new MailAddress(email);
+            //    const string pass = "khai12345678";
+            //    const string subject = "Gửi mã xác nhận";
+            //    string body = Rand.ToString();
 
-                var smtp = new SmtpClient
-                {
-                    Host = "smtp.gmail.com",
-                    Port = 587,
-                    EnableSsl = true,
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential(fromAddress.Address, pass),
-                    Timeout = 2000000
+            //    var smtp = new SmtpClient
+            //    {
+            //        Host = "smtp.gmail.com",
+            //        Port = 587,
+            //        EnableSsl = true,
+            //        DeliveryMethod = SmtpDeliveryMethod.Network,
+            //        UseDefaultCredentials = false,
+            //        Credentials = new NetworkCredential(fromAddress.Address, pass),
+            //        Timeout = 2000000
 
-                };
-                using (var Message = new MailMessage(fromAddress, toAddress)
-                {
-                    Subject = subject,
-                    Body = body
-                })
-                {
-                    smtp.Send(Message);
-                }
-                MessageBox.Show("OTP đã được gửi qua mail ");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //    };
+            //    using (var Message = new MailMessage(fromAddress, toAddress)
+            //    {
+            //        Subject = subject,
+            //        Body = body
+            //    })
+            //    {
+            //        smtp.Send(Message);
+            //    }
+            //    MessageBox.Show("OTP đã được gửi qua mail ");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
     }
 }

@@ -32,6 +32,7 @@
         <AssociationConnector Association="DoubleTCinema.fk_id_seat_type" ManuallyRouted="false" />
         <AssociationConnector Association="DoubleTCinema.fk_id_shifttime" ManuallyRouted="false" />
         <AssociationConnector Association="DoubleTCinema.fk_id_staff" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DoubleTCinema.sysdiagram" Width="1.5" PointX="7.375" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

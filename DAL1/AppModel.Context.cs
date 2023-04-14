@@ -38,5 +38,6 @@ namespace DAL1
         public virtual DbSet<TBShift> TBShifts { get; set; }
         public virtual DbSet<TBShifttime> TBShifttimes { get; set; }
         public virtual DbSet<TBStaff> TBStaffs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

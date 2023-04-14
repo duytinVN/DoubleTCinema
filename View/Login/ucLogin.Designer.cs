@@ -28,16 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucLogin));
             this.pnLogin = new Guna.UI2.WinForms.Guna2Panel();
             this.txtPassWord = new Guna.UI.WinForms.GunaLineTextBox();
             this.txtUser = new Guna.UI.WinForms.GunaLineTextBox();
             this.lblResult = new Guna.UI.WinForms.GunaLabel();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.lblFogotPassword = new System.Windows.Forms.Label();
+            this.lblWelcome = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pbPassword = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.pbLogin = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.lblWelcome = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pnLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogin)).BeginInit();
@@ -139,31 +138,6 @@
             this.lblFogotPassword.Size = new System.Drawing.Size(203, 35);
             this.lblFogotPassword.TabIndex = 6;
             this.lblFogotPassword.Text = "Quên mật khẩu";
-            
-            // 
-            // pbPassword
-            // 
-            this.pbPassword.BaseColor = System.Drawing.Color.White;
-            this.pbPassword.Image = ((System.Drawing.Image)(resources.GetObject("pbPassword.Image")));
-            this.pbPassword.Location = new System.Drawing.Point(132, 295);
-            this.pbPassword.Name = "pbPassword";
-            this.pbPassword.Size = new System.Drawing.Size(30, 30);
-            this.pbPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbPassword.TabIndex = 3;
-            this.pbPassword.TabStop = false;
-            this.pbPassword.UseTransfarantBackground = false;
-            // 
-            // pbLogin
-            // 
-            this.pbLogin.Image = ((System.Drawing.Image)(resources.GetObject("pbLogin.Image")));
-            this.pbLogin.Location = new System.Drawing.Point(132, 204);
-            this.pbLogin.Name = "pbLogin";
-            this.pbLogin.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pbLogin.ShadowDecoration.Parent = this.pbLogin;
-            this.pbLogin.Size = new System.Drawing.Size(30, 30);
-            this.pbLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbLogin.TabIndex = 1;
-            this.pbLogin.TabStop = false;
             // 
             // lblWelcome
             // 
@@ -175,6 +149,30 @@
             this.lblWelcome.Size = new System.Drawing.Size(442, 70);
             this.lblWelcome.TabIndex = 0;
             this.lblWelcome.Text = "WELCOME BACK";
+            // 
+            // pbPassword
+            // 
+            this.pbPassword.BaseColor = System.Drawing.Color.White;
+            this.pbPassword.Image = global::DoubleTCinema.Properties.Resources.icons8_lock_30;
+            this.pbPassword.Location = new System.Drawing.Point(132, 295);
+            this.pbPassword.Name = "pbPassword";
+            this.pbPassword.Size = new System.Drawing.Size(30, 30);
+            this.pbPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbPassword.TabIndex = 3;
+            this.pbPassword.TabStop = false;
+            this.pbPassword.UseTransfarantBackground = false;
+            // 
+            // pbLogin
+            // 
+            this.pbLogin.Image = global::DoubleTCinema.Properties.Resources.icons8_user_30;
+            this.pbLogin.Location = new System.Drawing.Point(132, 204);
+            this.pbLogin.Name = "pbLogin";
+            this.pbLogin.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pbLogin.ShadowDecoration.Parent = this.pbLogin;
+            this.pbLogin.Size = new System.Drawing.Size(30, 30);
+            this.pbLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbLogin.TabIndex = 1;
+            this.pbLogin.TabStop = false;
             // 
             // ucLogin
             // 

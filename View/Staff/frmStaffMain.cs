@@ -11,15 +11,15 @@ using System.Windows.Forms;
 
 namespace DoubleTCinema.View.Staff
 {
-    public partial class StaffMain : Form
+    public partial class frmStaffMain : Form
     {
         //TBStaff staff=null;
-        public StaffMain()
+        public frmStaffMain()
         {
             InitializeComponent();
             
         }
-        public StaffMain(int Staff_Id)
+        public frmStaffMain(int Staff_Id)
         {
             InitializeComponent();
             //DoubleT db=new DoubleT();
