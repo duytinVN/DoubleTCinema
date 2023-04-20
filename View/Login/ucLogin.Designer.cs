@@ -34,9 +34,9 @@
             this.lblResult = new Guna.UI.WinForms.GunaLabel();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.lblFogotPassword = new System.Windows.Forms.Label();
-            this.lblWelcome = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pbPassword = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.pbLogin = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.lblWelcome = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pnLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogin)).BeginInit();
@@ -138,17 +138,7 @@
             this.lblFogotPassword.Size = new System.Drawing.Size(203, 35);
             this.lblFogotPassword.TabIndex = 6;
             this.lblFogotPassword.Text = "Quên mật khẩu";
-            // 
-            // lblWelcome
-            // 
-            this.lblWelcome.BackColor = System.Drawing.Color.Transparent;
-            this.lblWelcome.Font = new System.Drawing.Font("Arial Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(123)))), ((int)(((byte)(187)))));
-            this.lblWelcome.Location = new System.Drawing.Point(80, 70);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(442, 70);
-            this.lblWelcome.TabIndex = 0;
-            this.lblWelcome.Text = "WELCOME BACK";
+            this.lblFogotPassword.Click += new System.EventHandler(this.lblFogotPassword_Click);
             // 
             // pbPassword
             // 
@@ -173,6 +163,17 @@
             this.pbLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbLogin.TabIndex = 1;
             this.pbLogin.TabStop = false;
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.BackColor = System.Drawing.Color.Transparent;
+            this.lblWelcome.Font = new System.Drawing.Font("Arial Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(123)))), ((int)(((byte)(187)))));
+            this.lblWelcome.Location = new System.Drawing.Point(80, 70);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(442, 70);
+            this.lblWelcome.TabIndex = 0;
+            this.lblWelcome.Text = "WELCOME BACK";
             // 
             // ucLogin
             // 

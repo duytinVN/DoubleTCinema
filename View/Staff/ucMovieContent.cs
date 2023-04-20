@@ -17,6 +17,6 @@ namespace DoubleTCinema.View.Staff
             InitializeComponent();
         }
 
-       
+        
     }
 }

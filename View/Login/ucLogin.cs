@@ -1,4 +1,5 @@
 ﻿
+using BLL1;
 using DoubleTCinema.View.Staff;
 using System;
 using System.Collections.Generic;
@@ -68,18 +69,39 @@ namespace DoubleTCinema
             //    }
 
             //}
+            if(txtUser.Text=="" || txtPassWord.Text=="")
+            {
+                lblResult.Text = "Vui lòng nhập tên đăng nhập và mật khẩu đầy đủ";
+                if(lblResult.Visible == false )
+                {
+                    lblResult.Visible = true;
+                }
+            }
+            else
+            {
+                bool login=TBStaffBLL.Instance.CheckLogin(txtUser.Text, txtPassWord.Text);
+                if(login==true)
+                {
+                    MessageBox.Show("Đăng nhập thành công");
+                }
+                else
+                {
+                    string text=TBStaffBLL.Instance.ShowErrorLogin(txtUser.Text,txtPassWord.Text);
+                    lblResult.Text = text;
+                    if (lblResult.Visible == false)
+                    {
+                        lblResult.Visible = true;
+                    }
+                }
+            }    
         }
 
-        //private void lblFogotPassword_Click(object sender, EventArgs e)
-        //{
-
-        //    Panel panel = (Panel)this.Parent;
-        //    panel.Controls.Remove(this);
-
-        //    panel.Controls.Add(new ucFogottPassword());
-        //    this.Dispose();
-        //}
-
-        
+        private void lblFogotPassword_Click(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)this.Parent;
+            panel.Controls.Remove(this);
+            panel.Controls.Add(new ucFogottPassword());
+            this.Dispose();
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿
+using BLL1;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,14 +32,30 @@ namespace DoubleTCinema
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            //if(txtEmail.Text=="")
-            //{
-            //    lblResult.Text = "Vui lòng nhập email";
-            //    if(lblResult.Visible==false)
-            //    {
-            //        lblResult.Visible = true;
-            //    }
-            //}
+            if (txtEmail.Text == "")
+            {
+                lblResult.Text = "Vui lòng nhập email";
+                if (lblResult.Visible == false)
+                {
+                    lblResult.Visible = true;
+                }
+            }
+            else
+            {
+                string text=TBStaffBLL.Instance.CheckEmail(txtEmail.Text);
+                if(text==null)
+                {
+                    MessageBox.Show("Đã tìm thấy email");
+                }
+                else
+                {
+                    lblResult.Text = text;
+                    if (lblResult.Visible == false)
+                    {
+                        lblResult.Visible = true;
+                    }
+                }
+            }
             //else
             //{
             //    DoubleT db = new DoubleT();
