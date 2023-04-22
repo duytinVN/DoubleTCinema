@@ -1,5 +1,6 @@
 ﻿
 using BLL1;
+using DoubleTCinema.View.Login;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,14 +43,19 @@ namespace DoubleTCinema
             }
             else
             {
-                string text=TBStaffBLL.Instance.CheckEmail(txtEmail.Text);
-                if(text==null)
+                bool ck=TBStaffBLL.Instance.CheckEmail(txtEmail.Text);
+                if(ck==true)
                 {
-                    MessageBox.Show("Đã tìm thấy email");
+                    TBStaffBLL.Instance.SetPass();
+                    TBStaffBLL.Instance.SendEmail(txtEmail.Text);
+                    Panel panel = (Panel)this.Parent;
+                    panel.Controls.Remove(this);
+                    panel.Controls.Add(new ucVerification());
+                    
                 }
                 else
                 {
-                    lblResult.Text = text;
+                    lblResult.Text = "Không tìm thấy tài khoản tương ứng với email trên!";
                     if (lblResult.Visible == false)
                     {
                         lblResult.Visible = true;

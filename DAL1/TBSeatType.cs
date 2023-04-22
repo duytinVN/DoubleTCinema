@@ -23,7 +23,6 @@ namespace DAL1
         public int seat_type_id { get; set; }
         public string seat_type_name { get; set; }
         public int seat_type_price_percent { get; set; }
-        public int seat_type_color { get; set; }
         public bool is_deleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

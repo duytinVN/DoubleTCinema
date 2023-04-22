@@ -51,6 +51,24 @@
     <Reference Include="Guna.UI2">
       <HintPath>C:\Users\win\Downloads\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -61,15 +79,16 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
-    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.7.0.0-preview.2.22152.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -90,6 +109,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="View\Control\DayButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Control\SeatButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Control\ShowtimeButton.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\Login\ucFinishReset.cs">
       <SubType>UserControl</SubType>
@@ -129,11 +158,47 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Staff\frmAddUser.cs">
+    <Compile Include="View\Staff\frmBookChair.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Staff\frmAddUser.Designer.cs">
-      <DependentUpon>frmAddUser.cs</DependentUpon>
+    <Compile Include="View\Staff\frmBookChair.Designer.cs">
+      <DependentUpon>frmBookChair.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Staff\frmEditCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Staff\frmEditCustomers.Designer.cs">
+      <DependentUpon>frmEditCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Staff\frmPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Staff\frmPayment.Designer.cs">
+      <DependentUpon>frmPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Staff\frmPrintRecept.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Staff\frmPrintRecept.Designer.cs">
+      <DependentUpon>frmPrintRecept.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Staff\frmPrintTickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Staff\frmPrintTickets.Designer.cs">
+      <DependentUpon>frmPrintTickets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Staff\ucCanlendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Staff\ucCanlendar.Designer.cs">
+      <DependentUpon>ucCanlendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Staff\ucMovie.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Staff\ucMovie.Designer.cs">
+      <DependentUpon>ucMovie.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Staff\ucMovieBooking.cs">
       <SubType>UserControl</SubType>
@@ -147,23 +212,29 @@
     <Compile Include="View\Staff\frmStaffMain.Designer.cs">
       <DependentUpon>frmStaffMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Staff\ucMovie.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Staff\ucMovie.Designer.cs">
-      <DependentUpon>ucMovie.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Staff\ucMovieContent.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\Staff\ucMovieContent.Designer.cs">
       <DependentUpon>ucMovieContent.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Staff\ucShift.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Staff\ucShift.Designer.cs">
+      <DependentUpon>ucShift.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Staff\ucStaffUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\Staff\ucStaffUser.Designer.cs">
       <DependentUpon>ucStaffUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Staff\ucStatistical.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Staff\ucStatistical.Designer.cs">
+      <DependentUpon>ucStatistical.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="View\Login\ucFinishReset.resx">
       <DependentUpon>ucFinishReset.cs</DependentUpon>
@@ -188,8 +259,32 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Staff\frmAddUser.resx">
-      <DependentUpon>frmAddUser.cs</DependentUpon>
+    <EmbeddedResource Include="View\Staff\frmBookChair.resx">
+      <DependentUpon>frmBookChair.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Staff\frmEditCustomers.resx">
+      <DependentUpon>frmEditCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Staff\frmPayment.resx">
+      <DependentUpon>frmPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Staff\frmPrintRecept.resx">
+      <DependentUpon>frmPrintRecept.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Staff\frmPrintTickets.resx">
+      <DependentUpon>frmPrintTickets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Staff\ReportReceipt.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Staff\ReportTicket.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Staff\ucCanlendar.resx">
+      <DependentUpon>ucCanlendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Staff\ucMovie.resx">
+      <DependentUpon>ucMovie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Staff\ucMovieBooking.resx">
       <DependentUpon>ucMovieBooking.cs</DependentUpon>
@@ -197,16 +292,24 @@
     <EmbeddedResource Include="View\Staff\frmStaffMain.resx">
       <DependentUpon>frmStaffMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Staff\ucMovie.resx">
-      <DependentUpon>ucMovie.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Staff\ucMovieContent.resx">
       <DependentUpon>ucMovieContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Staff\ucShift.resx">
+      <DependentUpon>ucShift.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Staff\ucStaffUser.resx">
       <DependentUpon>ucStaffUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Staff\ucStatistical.resx">
+      <DependentUpon>ucStatistical.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DTO1.TBCustomerDTO.datasource" />
+    <None Include="Properties\DataSources\DTO1.TBReceiptDTO.datasource" />
+    <None Include="Properties\DataSources\DTO1.TBSeatBookingDTO.datasource" />
+    <None Include="Properties\DataSources\DTO1.TBShiftDTO.datasource" />
+    <None Include="Properties\DataSources\DTO1.TBTicketsDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -229,9 +332,9 @@
       <Project>{0fdfa39a-b01b-40e8-918b-ddab28118f28}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="DTO1\DTO1.csproj">
+    <ProjectReference Include="DTO1\DTO.csproj">
       <Project>{c9a149c2-c41d-40c5-b683-29a2d8756ce2}</Project>
-      <Name>DTO1</Name>
+      <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -281,6 +384,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\onepiecered.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-left-arrow-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-call-female-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-48 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

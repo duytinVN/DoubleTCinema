@@ -30,13 +30,10 @@
         {
             this.lblTitle = new Guna.UI.WinForms.GunaLabel();
             this.txtSearch = new Guna.UI.WinForms.GunaLineTextBox();
-            this.cboCategory = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.dpkTime = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.pnMovie = new Guna.UI.WinForms.GunaLinePanel();
-            this.pbcombo = new Guna.UI.WinForms.GunaPictureBox();
-            this.pbSearch = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbcombo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
+            this.cbbGenges = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.pnMovie = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnGenre = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -56,6 +53,7 @@
             this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSearch.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtSearch.ForeColor = System.Drawing.Color.Gray;
             this.txtSearch.LineColor = System.Drawing.Color.Gainsboro;
             this.txtSearch.Location = new System.Drawing.Point(63, 76);
             this.txtSearch.Name = "txtSearch";
@@ -64,94 +62,93 @@
             this.txtSearch.Size = new System.Drawing.Size(285, 35);
             this.txtSearch.TabIndex = 2;
             this.txtSearch.Text = "Tìm kiếm phim";
+            this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
+            this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
             // 
-            // cboCategory
+            // cbbGenges
             // 
-            this.cboCategory.BackColor = System.Drawing.Color.Transparent;
-            this.cboCategory.BorderThickness = 0;
-            this.cboCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCategory.DropDownWidth = 199;
-            this.cboCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboCategory.FocusedColor = System.Drawing.Color.Empty;
-            this.cboCategory.FocusedState.Parent = this.cboCategory;
-            this.cboCategory.Font = new System.Drawing.Font("Times New Roman", 15.75F);
-            this.cboCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.HoverState.Parent = this.cboCategory;
-            this.cboCategory.ItemHeight = 30;
-            this.cboCategory.ItemsAppearance.Parent = this.cboCategory;
-            this.cboCategory.Location = new System.Drawing.Point(427, 75);
-            this.cboCategory.Name = "cboCategory";
-            this.cboCategory.ShadowDecoration.Parent = this.cboCategory;
-            this.cboCategory.Size = new System.Drawing.Size(179, 36);
-            this.cboCategory.TabIndex = 4;
-            // 
-            // dpkTime
-            // 
-            this.dpkTime.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.dpkTime.CheckedState.Parent = this.dpkTime;
-            this.dpkTime.FillColor = System.Drawing.Color.Transparent;
-            this.dpkTime.Font = new System.Drawing.Font("Times New Roman", 15.75F);
-            this.dpkTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpkTime.HoverState.Parent = this.dpkTime;
-            this.dpkTime.Location = new System.Drawing.Point(685, 78);
-            this.dpkTime.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dpkTime.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dpkTime.Name = "dpkTime";
-            this.dpkTime.ShadowDecoration.Parent = this.dpkTime;
-            this.dpkTime.Size = new System.Drawing.Size(185, 33);
-            this.dpkTime.TabIndex = 5;
-            this.dpkTime.Value = new System.DateTime(2023, 4, 13, 0, 0, 0, 0);
+            this.cbbGenges.BackColor = System.Drawing.Color.Transparent;
+            this.cbbGenges.BorderThickness = 0;
+            this.cbbGenges.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbGenges.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbGenges.DropDownWidth = 199;
+            this.cbbGenges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbbGenges.FocusedColor = System.Drawing.Color.Empty;
+            this.cbbGenges.FocusedState.Parent = this.cbbGenges;
+            this.cbbGenges.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbbGenges.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbbGenges.FormattingEnabled = true;
+            this.cbbGenges.HoverState.Parent = this.cbbGenges;
+            this.cbbGenges.ItemHeight = 30;
+            this.cbbGenges.ItemsAppearance.Parent = this.cbbGenges;
+            this.cbbGenges.Location = new System.Drawing.Point(408, 75);
+            this.cbbGenges.Name = "cbbGenges";
+            this.cbbGenges.ShadowDecoration.Parent = this.cbbGenges;
+            this.cbbGenges.Size = new System.Drawing.Size(251, 36);
+            this.cbbGenges.TabIndex = 4;
+            this.cbbGenges.SelectedIndexChanged += new System.EventHandler(this.cbbGenges_SelectedIndexChanged);
             // 
             // pnMovie
             // 
-            this.pnMovie.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnMovie.LineColor = System.Drawing.Color.Black;
-            this.pnMovie.LineStyle = System.Windows.Forms.BorderStyle.None;
+            this.pnMovie.AutoScroll = true;
+            this.pnMovie.AutoScrollMargin = new System.Drawing.Size(20, 20);
             this.pnMovie.Location = new System.Drawing.Point(0, 117);
             this.pnMovie.Name = "pnMovie";
-            this.pnMovie.Size = new System.Drawing.Size(980, 530);
+            this.pnMovie.ShadowDecoration.Parent = this.pnMovie;
+            this.pnMovie.Size = new System.Drawing.Size(980, 533);
             this.pnMovie.TabIndex = 6;
             // 
-            // pbcombo
+            // guna2Button1
             // 
-            this.pbcombo.BaseColor = System.Drawing.Color.White;
-            this.pbcombo.Image = global::DoubleTCinema.Properties.Resources.icons8_funnel_50;
-            this.pbcombo.Location = new System.Drawing.Point(377, 78);
-            this.pbcombo.Name = "pbcombo";
-            this.pbcombo.Size = new System.Drawing.Size(30, 30);
-            this.pbcombo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbcombo.TabIndex = 3;
-            this.pbcombo.TabStop = false;
+            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
+            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
+            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2Button1.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.LightGray;
+            this.guna2Button1.HoverState.Parent = this.guna2Button1;
+            this.guna2Button1.Image = global::DoubleTCinema.Properties.Resources.icons8_search_24;
+            this.guna2Button1.Location = new System.Drawing.Point(22, 78);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
+            this.guna2Button1.Size = new System.Drawing.Size(35, 32);
+            this.guna2Button1.TabIndex = 7;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // pbSearch
+            // btnGenre
             // 
-            this.pbSearch.Image = global::DoubleTCinema.Properties.Resources.icons8_search_24;
-            this.pbSearch.Location = new System.Drawing.Point(27, 78);
-            this.pbSearch.Name = "pbSearch";
-            this.pbSearch.Size = new System.Drawing.Size(30, 30);
-            this.pbSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbSearch.TabIndex = 1;
-            this.pbSearch.TabStop = false;
+            this.btnGenre.CheckedState.Parent = this.btnGenre;
+            this.btnGenre.CustomImages.Parent = this.btnGenre;
+            this.btnGenre.FillColor = System.Drawing.Color.Transparent;
+            this.btnGenre.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnGenre.ForeColor = System.Drawing.Color.White;
+            this.btnGenre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnGenre.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnGenre.HoverState.FillColor = System.Drawing.Color.LightGray;
+            this.btnGenre.HoverState.Parent = this.btnGenre;
+            this.btnGenre.Image = global::DoubleTCinema.Properties.Resources.icons8_funnel_50;
+            this.btnGenre.Location = new System.Drawing.Point(367, 78);
+            this.btnGenre.Name = "btnGenre";
+            this.btnGenre.ShadowDecoration.Parent = this.btnGenre;
+            this.btnGenre.Size = new System.Drawing.Size(35, 32);
+            this.btnGenre.TabIndex = 7;
+            this.btnGenre.Click += new System.EventHandler(this.btnGenre_Click);
             // 
             // ucMovieBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnGenre);
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.pnMovie);
-            this.Controls.Add(this.dpkTime);
-            this.Controls.Add(this.cboCategory);
-            this.Controls.Add(this.pbcombo);
+            this.Controls.Add(this.cbbGenges);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.pbSearch);
             this.Controls.Add(this.lblTitle);
             this.Name = "ucMovieBooking";
             this.Size = new System.Drawing.Size(980, 650);
-            
-            ((System.ComponentModel.ISupportInitialize)(this.pbcombo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,11 +157,10 @@
         #endregion
 
         private Guna.UI.WinForms.GunaLabel lblTitle;
-        private System.Windows.Forms.PictureBox pbSearch;
         private Guna.UI.WinForms.GunaLineTextBox txtSearch;
-        private Guna.UI.WinForms.GunaPictureBox pbcombo;
-        private Guna.UI2.WinForms.Guna2ComboBox cboCategory;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dpkTime;
-        private Guna.UI.WinForms.GunaLinePanel pnMovie;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbGenges;
+        private Guna.UI2.WinForms.Guna2Panel pnMovie;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnGenre;
     }
 }

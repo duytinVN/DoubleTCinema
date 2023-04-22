@@ -93,9 +93,39 @@ namespace DoubleTCinema.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_call_female_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-call-female-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_clapperboard_48__1_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-clapperboard-48 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_close_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-close-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_close_48__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-close-48 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,6 +166,16 @@ namespace DoubleTCinema.Properties {
         internal static System.Drawing.Bitmap icons8_left_arrow_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-left-arrow-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_left_arrow_501 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-left-arrow-501", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -96,6 +96,7 @@
             this.txtPass.SelectedText = "";
             this.txtPass.Size = new System.Drawing.Size(324, 35);
             this.txtPass.TabIndex = 16;
+           
             // 
             // lblResult
             // 

@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStaffMain));
             this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
-            this.pbUser = new System.Windows.Forms.PictureBox();
-            this.lblUser = new Guna.UI.WinForms.GunaLabel();
-            this.pbCancenlar = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pbMovie = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.lblCancelar = new Guna.UI.WinForms.GunaLabel();
-            this.pblMovie = new Guna.UI.WinForms.GunaLabel();
+            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCustomer = new Guna.UI2.WinForms.Guna2Button();
+            this.btnShift = new Guna.UI2.WinForms.Guna2Button();
+            this.btnMovie = new Guna.UI2.WinForms.Guna2Button();
             this.lblMain = new Guna.UI.WinForms.GunaLabel();
             this.pbDoubleTCinema = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnView = new Guna.UI2.WinForms.Guna2Panel();
@@ -43,10 +42,8 @@
             this.pbClose = new Guna.UI.WinForms.GunaPictureBox();
             this.pbAccount = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pbMinimize = new Guna.UI.WinForms.GunaPictureBox();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.pnMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCancenlar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMovie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDoubleTCinema)).BeginInit();
             this.pnIcon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
@@ -57,84 +54,99 @@
             // pnMain
             // 
             this.pnMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(101)))), ((int)(((byte)(174)))));
-            this.pnMain.Controls.Add(this.pbUser);
-            this.pnMain.Controls.Add(this.lblUser);
-            this.pnMain.Controls.Add(this.pbCancenlar);
-            this.pnMain.Controls.Add(this.pbMovie);
-            this.pnMain.Controls.Add(this.lblCancelar);
-            this.pnMain.Controls.Add(this.pblMovie);
+            this.pnMain.Controls.Add(this.guna2Button4);
+            this.pnMain.Controls.Add(this.btnCustomer);
+            this.pnMain.Controls.Add(this.btnShift);
+            this.pnMain.Controls.Add(this.btnMovie);
             this.pnMain.Controls.Add(this.lblMain);
             this.pnMain.Controls.Add(this.pbDoubleTCinema);
-            this.pnMain.Location = new System.Drawing.Point(0, -1);
+            this.pnMain.Location = new System.Drawing.Point(0, 0);
             this.pnMain.Name = "pnMain";
             this.pnMain.ShadowDecoration.Parent = this.pnMain;
-            this.pnMain.Size = new System.Drawing.Size(260, 719);
+            this.pnMain.Size = new System.Drawing.Size(260, 720);
             this.pnMain.TabIndex = 0;
             // 
-            // pbUser
+            // guna2Button4
             // 
-            this.pbUser.Image = global::DoubleTCinema.Properties.Resources.icons8_user_48;
-            this.pbUser.Location = new System.Drawing.Point(17, 216);
-            this.pbUser.Name = "pbUser";
-            this.pbUser.Size = new System.Drawing.Size(40, 40);
-            this.pbUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbUser.TabIndex = 7;
-            this.pbUser.TabStop = false;
+            this.guna2Button4.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
+            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
+            this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button4.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.guna2Button4.ForeColor = System.Drawing.Color.White;
+            this.guna2Button4.HoverState.Parent = this.guna2Button4;
+            this.guna2Button4.Image = global::DoubleTCinema.Properties.Resources.icons8_user_48;
+            this.guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button4.ImageSize = new System.Drawing.Size(40, 40);
+            this.guna2Button4.Location = new System.Drawing.Point(3, 286);
+            this.guna2Button4.Name = "guna2Button4";
+            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
+            this.guna2Button4.Size = new System.Drawing.Size(254, 45);
+            this.guna2Button4.TabIndex = 11;
+            this.guna2Button4.Text = "Thống kê";
+            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
             // 
-            // lblUser
+            // btnCustomer
             // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.Color.White;
-            this.lblUser.Location = new System.Drawing.Point(82, 226);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(131, 26);
-            this.lblUser.TabIndex = 6;
-            this.lblUser.Text = "Khách Hàng";
+            this.btnCustomer.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnCustomer.CheckedState.Parent = this.btnCustomer;
+            this.btnCustomer.CustomImages.Parent = this.btnCustomer;
+            this.btnCustomer.FillColor = System.Drawing.Color.Transparent;
+            this.btnCustomer.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnCustomer.ForeColor = System.Drawing.Color.White;
+            this.btnCustomer.HoverState.Parent = this.btnCustomer;
+            this.btnCustomer.Image = global::DoubleTCinema.Properties.Resources.icons8_user_48;
+            this.btnCustomer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCustomer.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnCustomer.Location = new System.Drawing.Point(3, 155);
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.ShadowDecoration.Parent = this.btnCustomer;
+            this.btnCustomer.Size = new System.Drawing.Size(254, 45);
+            this.btnCustomer.TabIndex = 10;
+            this.btnCustomer.Text = "Khách hàng";
+            this.btnCustomer.TextOffset = new System.Drawing.Point(11, 0);
+            this.btnCustomer.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
-            // pbCancenlar
+            // btnShift
             // 
-            this.pbCancenlar.Image = global::DoubleTCinema.Properties.Resources.icons8_calendar_30;
-            this.pbCancenlar.Location = new System.Drawing.Point(17, 154);
-            this.pbCancenlar.Name = "pbCancenlar";
-            this.pbCancenlar.ShadowDecoration.Parent = this.pbCancenlar;
-            this.pbCancenlar.Size = new System.Drawing.Size(40, 40);
-            this.pbCancenlar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbCancenlar.TabIndex = 5;
-            this.pbCancenlar.TabStop = false;
+            this.btnShift.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnShift.CheckedState.Parent = this.btnShift;
+            this.btnShift.CustomImages.Parent = this.btnShift;
+            this.btnShift.FillColor = System.Drawing.Color.Transparent;
+            this.btnShift.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnShift.ForeColor = System.Drawing.Color.White;
+            this.btnShift.HoverState.Parent = this.btnShift;
+            this.btnShift.Image = global::DoubleTCinema.Properties.Resources.icons8_calendar_30;
+            this.btnShift.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnShift.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnShift.Location = new System.Drawing.Point(3, 219);
+            this.btnShift.Name = "btnShift";
+            this.btnShift.ShadowDecoration.Parent = this.btnShift;
+            this.btnShift.Size = new System.Drawing.Size(254, 45);
+            this.btnShift.TabIndex = 9;
+            this.btnShift.Text = "Lịch trực";
+            this.btnShift.Click += new System.EventHandler(this.btnShift_Click);
             // 
-            // pbMovie
+            // btnMovie
             // 
-            this.pbMovie.Image = global::DoubleTCinema.Properties.Resources.icons8_clapperboard_48__1_;
-            this.pbMovie.Location = new System.Drawing.Point(17, 92);
-            this.pbMovie.Name = "pbMovie";
-            this.pbMovie.ShadowDecoration.Parent = this.pbMovie;
-            this.pbMovie.Size = new System.Drawing.Size(40, 40);
-            this.pbMovie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbMovie.TabIndex = 4;
-            this.pbMovie.TabStop = false;
-            // 
-            // lblCancelar
-            // 
-            this.lblCancelar.AutoSize = true;
-            this.lblCancelar.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCancelar.ForeColor = System.Drawing.Color.White;
-            this.lblCancelar.Location = new System.Drawing.Point(82, 162);
-            this.lblCancelar.Name = "lblCancelar";
-            this.lblCancelar.Size = new System.Drawing.Size(102, 26);
-            this.lblCancelar.TabIndex = 3;
-            this.lblCancelar.Text = "Lịch trực";
-            // 
-            // pblMovie
-            // 
-            this.pblMovie.AutoSize = true;
-            this.pblMovie.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pblMovie.ForeColor = System.Drawing.Color.White;
-            this.pblMovie.Location = new System.Drawing.Point(82, 100);
-            this.pblMovie.Name = "pblMovie";
-            this.pblMovie.Size = new System.Drawing.Size(175, 26);
-            this.pblMovie.TabIndex = 2;
-            this.pblMovie.Text = "Phim đang chiếu";
+            this.btnMovie.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnMovie.CheckedState.Parent = this.btnMovie;
+            this.btnMovie.CustomImages.Parent = this.btnMovie;
+            this.btnMovie.FillColor = System.Drawing.Color.Transparent;
+            this.btnMovie.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnMovie.ForeColor = System.Drawing.Color.White;
+            this.btnMovie.HoverState.Parent = this.btnMovie;
+            this.btnMovie.Image = global::DoubleTCinema.Properties.Resources.icons8_clapperboard_48__1_;
+            this.btnMovie.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnMovie.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnMovie.Location = new System.Drawing.Point(3, 89);
+            this.btnMovie.Name = "btnMovie";
+            this.btnMovie.ShadowDecoration.Parent = this.btnMovie;
+            this.btnMovie.Size = new System.Drawing.Size(254, 45);
+            this.btnMovie.TabIndex = 8;
+            this.btnMovie.Text = "Phim đang chiếu";
+            this.btnMovie.TextOffset = new System.Drawing.Point(38, 0);
+            this.btnMovie.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // lblMain
             // 
@@ -215,6 +227,11 @@
             this.pbMinimize.TabStop = false;
             this.pbMinimize.Click += new System.EventHandler(this.gunaPictureBox2_Click);
             // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 10;
+            this.guna2Elipse1.TargetControl = this;
+            // 
             // frmStaffMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,9 +248,6 @@
             this.Text = "StaffMain";
             this.pnMain.ResumeLayout(false);
             this.pnMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCancenlar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMovie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDoubleTCinema)).EndInit();
             this.pnIcon.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbClose)).EndInit();
@@ -246,10 +260,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel pnMain;
-        private Guna.UI2.WinForms.Guna2PictureBox pbCancenlar;
-        private Guna.UI2.WinForms.Guna2PictureBox pbMovie;
-        private Guna.UI.WinForms.GunaLabel lblCancelar;
-        private Guna.UI.WinForms.GunaLabel pblMovie;
         private Guna.UI.WinForms.GunaLabel lblMain;
         private Guna.UI2.WinForms.Guna2PictureBox pbDoubleTCinema;
         private Guna.UI2.WinForms.Guna2Panel pnView;
@@ -257,7 +267,10 @@
         private Guna.UI2.WinForms.Guna2PictureBox pbAccount;
         private Guna.UI.WinForms.GunaPictureBox pbClose;
         private Guna.UI2.WinForms.Guna2Panel pnIcon;
-        private Guna.UI.WinForms.GunaLabel lblUser;
-        private System.Windows.Forms.PictureBox pbUser;
+        private Guna.UI2.WinForms.Guna2Button btnCustomer;
+        private Guna.UI2.WinForms.Guna2Button btnShift;
+        private Guna.UI2.WinForms.Guna2Button btnMovie;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button4;
     }
 }

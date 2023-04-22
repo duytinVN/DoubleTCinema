@@ -26,10 +26,11 @@ namespace DAL1
         public string movie_description { get; set; }
         public int movie_length { get; set; }
         public System.DateTime movie_release { get; set; }
-        public byte[] movie_image { get; set; }
+        public string movie_image { get; set; }
         public int movie_price { get; set; }
         public bool is_deleted { get; set; }
         public string movie_director { get; set; }
+        public string movie_nation { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBSchedule> TBSchedules { get; set; }

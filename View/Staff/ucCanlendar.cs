@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace DoubleTCinema.View.Staff
 {
-    public partial class frmAddUser : Form
+    public partial class ucCanlendar : UserControl
     {
-        public frmAddUser()
+        public ucCanlendar()
         {
             InitializeComponent();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

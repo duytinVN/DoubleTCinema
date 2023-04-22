@@ -28,24 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainLogin));
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pbMovie = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.pbMovie)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2PictureBox1
+            // pbMovie
             // 
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(640, 719);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
+            this.pbMovie.BorderRadius = 5;
+            this.pbMovie.Image = ((System.Drawing.Image)(resources.GetObject("pbMovie.Image")));
+            this.pbMovie.Location = new System.Drawing.Point(36, 50);
+            this.pbMovie.Name = "pbMovie";
+            this.pbMovie.ShadowDecoration.Parent = this.pbMovie;
+            this.pbMovie.Size = new System.Drawing.Size(580, 609);
+            this.pbMovie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbMovie.TabIndex = 0;
+            this.pbMovie.TabStop = false;
             // 
             // btnClose
             // 
@@ -87,7 +91,17 @@
             this.pnMain.Size = new System.Drawing.Size(626, 671);
             this.pnMain.TabIndex = 4;
             // 
-            // MainLogin
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 7000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.TargetControl = this;
+            // 
+            // frmMainLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -97,12 +111,12 @@
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.btnMinimize);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.guna2PictureBox1);
+            this.Controls.Add(this.pbMovie);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MainLogin";
+            this.Name = "frmMainLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMovie)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -110,10 +124,12 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2PictureBox pbMovie;
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2Button btnMinimize;
         private Guna.UI2.WinForms.Guna2Panel pnMain;
+        private System.Windows.Forms.Timer timer1;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }
 

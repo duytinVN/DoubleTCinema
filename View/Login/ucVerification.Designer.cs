@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucVerification));
             this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
             this.txtVerification = new Guna.UI.WinForms.GunaLineTextBox();
-            this.btnSendAgain = new Guna.UI2.WinForms.Guna2Button();
             this.btnComeback = new Guna.UI2.WinForms.Guna2Button();
             this.lblResult = new Guna.UI.WinForms.GunaLabel();
             this.btnNotification = new Guna.UI.WinForms.GunaLabel();
@@ -52,7 +51,6 @@
             this.pnMain.BorderRadius = 20;
             this.pnMain.BorderThickness = 1;
             this.pnMain.Controls.Add(this.txtVerification);
-            this.pnMain.Controls.Add(this.btnSendAgain);
             this.pnMain.Controls.Add(this.btnComeback);
             this.pnMain.Controls.Add(this.lblResult);
             this.pnMain.Controls.Add(this.btnNotification);
@@ -84,22 +82,6 @@
             this.txtVerification.SelectedText = "";
             this.txtVerification.Size = new System.Drawing.Size(303, 35);
             this.txtVerification.TabIndex = 19;
-            // 
-            // btnSendAgain
-            // 
-            this.btnSendAgain.BorderRadius = 15;
-            this.btnSendAgain.CheckedState.Parent = this.btnSendAgain;
-            this.btnSendAgain.CustomImages.Parent = this.btnSendAgain;
-            this.btnSendAgain.FillColor = System.Drawing.Color.Silver;
-            this.btnSendAgain.Font = new System.Drawing.Font("Cambria", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSendAgain.ForeColor = System.Drawing.Color.White;
-            this.btnSendAgain.HoverState.Parent = this.btnSendAgain;
-            this.btnSendAgain.Location = new System.Drawing.Point(126, 418);
-            this.btnSendAgain.Name = "btnSendAgain";
-            this.btnSendAgain.ShadowDecoration.Parent = this.btnSendAgain;
-            this.btnSendAgain.Size = new System.Drawing.Size(158, 45);
-            this.btnSendAgain.TabIndex = 12;
-            this.btnSendAgain.Text = "Gửi lại mã";
             // 
             // btnComeback
             // 
@@ -201,7 +183,6 @@
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTitle;
         private Guna.UI.WinForms.GunaLabel lblResult;
-        private Guna.UI2.WinForms.Guna2Button btnSendAgain;
         private Guna.UI2.WinForms.Guna2Button btnComeback;
         private Guna.UI.WinForms.GunaLineTextBox txtVerification;
     }

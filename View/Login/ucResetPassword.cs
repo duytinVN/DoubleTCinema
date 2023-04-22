@@ -1,4 +1,5 @@
 ﻿
+using BLL1;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,46 +23,45 @@ namespace DoubleTCinema.View.Login
         {
             InitializeComponent();
             //Staff_Id = temp;
-            //lblResult.Text = "Vui lòng nhập mật khẩu";
-            //lblResult.Visible= false;
+            lblResult.Text = "Vui lòng nhập mật khẩu";
+            lblResult.Visible = false;
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            //if(txtPass.Text!="" && txtUnPass.Text!= "")
-            //{
-            //    if(txtPass.Text==txtUnPass.Text)
-            //    {
-            //        DoubleT db= new DoubleT();
-            //        TBStaff staff = db.TBStaffs.Find(Staff_Id);
-            //        staff.pwd = BCrypt.Net.BCrypt.HashPassword(txtPass.Text);   
-            //        db.SaveChanges();
-            //        Panel panel = (Panel)this.Parent;
-            //        panel.Controls.Remove(this);
-            //        panel.Controls.Add(new ucFinishReset());
-            //        this.Dispose();
-            //    }
-            //    else
-            //    {
-            //        lblResult.Text = "Mật khẩu không trùng khớp";
-            //        if (lblResult.Visible == false)
-            //        {
-            //            lblResult.Visible= true;
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    lblResult.Text = "Vui lòng nhập mật khẩu";
-            //}
+            if (txtPass.Text != "" && txtRePass.Text != "")
+            {
+                if (txtPass.Text == txtRePass.Text)
+                {
+                    TBStaffBLL.Instance.RePass(txtPass.Text);
+                    Panel panel = (Panel)this.Parent;
+                    panel.Controls.Remove(this);
+                    panel.Controls.Add(new ucFinishReset());
+                    this.Dispose();
+                }
+                else
+                {
+                    lblResult.Text = "Mật khẩu không trùng khớp";
+                    if (lblResult.Visible == false)
+                    {
+                        lblResult.Visible = true;
+                    }
+                }
+            }
+            else
+            {
+                lblResult.Text = "Vui lòng nhập mật khẩu";
+            }
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            //Panel panel = (Panel)this.Parent;
-            //panel.Controls.Remove(this);
-            //panel.Controls.Add(new ucLogin());
-            //this.Dispose();
+            Panel panel = (Panel)this.Parent;
+            panel.Controls.Remove(this);
+            panel.Controls.Add(new ucLogin());
+            this.Dispose();
         }
+
+        
     }
 }

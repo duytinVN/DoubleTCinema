@@ -37,10 +37,11 @@
           <Property Name="movie_description" Type="nvarchar" MaxLength="1000" Nullable="false" />
           <Property Name="movie_length" Type="int" Nullable="false" />
           <Property Name="movie_release" Type="date" Nullable="false" />
-          <Property Name="movie_image" Type="image" />
           <Property Name="movie_price" Type="int" Nullable="false" />
           <Property Name="is_deleted" Type="bit" Nullable="false" />
           <Property Name="movie_director" Type="nvarchar" MaxLength="50" />
+          <Property Name="movie_image" Type="varchar" MaxLength="150" />
+          <Property Name="movie_nation" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="TBMovieGenres">
           <Key>
@@ -122,7 +123,6 @@
           <Property Name="seat_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="seat_type_name" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="seat_type_price_percent" Type="int" Nullable="false" />
-          <Property Name="seat_type_color" Type="int" Nullable="false" />
           <Property Name="is_deleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TBShift">
@@ -435,12 +435,13 @@
           <Property Name="movie_description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="movie_length" Type="Int32" Nullable="false" />
           <Property Name="movie_release" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="movie_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="movie_image" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
           <Property Name="movie_price" Type="Int32" Nullable="false" />
           <Property Name="is_deleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="TBSchedules" Relationship="Self.fk_id_movie" FromRole="TBMovie" ToRole="TBSchedule" />
           <NavigationProperty Name="TBMovieGenre" Relationship="Self.fk_id_movie_type" FromRole="TBMovie" ToRole="TBMovieGenres" />
           <Property Name="movie_director" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="movie_nation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TBMovieGenre">
           <Key>
@@ -541,7 +542,6 @@
           <Property Name="seat_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="seat_type_name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="seat_type_price_percent" Type="Int32" Nullable="false" />
-          <Property Name="seat_type_color" Type="Int32" Nullable="false" />
           <Property Name="is_deleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="TBSeats" Relationship="Self.fk_id_seat_type" FromRole="TBSeatType" ToRole="TBSeat" />
         </EntityType>
@@ -865,6 +865,7 @@
           <EntitySetMapping Name="TBMovies">
             <EntityTypeMapping TypeName="DoubleTCinema.TBMovie">
               <MappingFragment StoreEntitySet="TBMovie">
+                <ScalarProperty Name="movie_nation" ColumnName="movie_nation" />
                 <ScalarProperty Name="movie_director" ColumnName="movie_director" />
                 <ScalarProperty Name="movie_id" ColumnName="movie_id" />
                 <ScalarProperty Name="movie_name" ColumnName="movie_name" />
@@ -964,7 +965,6 @@
                 <ScalarProperty Name="seat_type_id" ColumnName="seat_type_id" />
                 <ScalarProperty Name="seat_type_name" ColumnName="seat_type_name" />
                 <ScalarProperty Name="seat_type_price_percent" ColumnName="seat_type_price_percent" />
-                <ScalarProperty Name="seat_type_color" ColumnName="seat_type_color" />
                 <ScalarProperty Name="is_deleted" ColumnName="is_deleted" />
               </MappingFragment>
             </EntityTypeMapping>

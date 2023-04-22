@@ -1,5 +1,4 @@
-﻿
-using BLL1;
+﻿using BLL1;
 using DoubleTCinema.View.Staff;
 using System;
 using System.Collections.Generic;
@@ -26,49 +25,7 @@ namespace DoubleTCinema
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //DoubleT db=new DoubleT();
-            //if(txtUser.Text=="" || txtPassWord.Text=="")
-            //{
-            //    lblResult.Text = "Vui lòng nhập tên đăng nhập hoặc mật khẩu";
-            //    if(lblResult.Visible==false )
-            //    {
-            //        lblResult.Visible=true;
-            //    }
-            //}
-            //else
-            //{
-            //    TBStaff staff= new TBStaff();
-            //    staff=db.TBStaffs.Where(p=>p.username.ToString().Trim()==txtUser.Text.Trim()).FirstOrDefault();
-            //    if (staff != null)
-            //    {
-                    
-            //        bool check=BCrypt.Net.BCrypt.Verify(txtPassWord.Text,staff.pwd);
-            //        if (check==true)
-            //        {
-
-            //            MainLogin form = (MainLogin)this.ParentForm;
-            //            form.CloseAndNewForm(staff.staff_id);
-
-            //        }
-            //        else
-            //        {
-            //            lblResult.Text = "Tên đăng nhập hoặc mật khẩu không đúng";
-            //            if (lblResult.Visible == false)
-            //            {
-            //                lblResult.Visible = true;
-            //            }
-            //        }
-            //    }
-            //    else
-            //    {
-            //        lblResult.Text = "Không tìm thấy tài khoản người dùng";
-            //        if (lblResult.Visible == false)
-            //        {
-            //            lblResult.Visible = true;
-            //        }
-            //    }
-
-            //}
+            
             if(txtUser.Text=="" || txtPassWord.Text=="")
             {
                 lblResult.Text = "Vui lòng nhập tên đăng nhập và mật khẩu đầy đủ";
@@ -82,7 +39,13 @@ namespace DoubleTCinema
                 bool login=TBStaffBLL.Instance.CheckLogin(txtUser.Text, txtPassWord.Text);
                 if(login==true)
                 {
-                    MessageBox.Show("Đăng nhập thành công");
+
+                    frmMainLogin form =(frmMainLogin) this.ParentForm;
+                    frmStaffMain staff = new frmStaffMain();
+                    staff.FormClosed += frmStaff_Closed;
+                    staff.Show();
+                    form.Hide();
+
                 }
                 else
                 {
@@ -95,7 +58,11 @@ namespace DoubleTCinema
                 }
             }    
         }
-
+        private void frmStaff_Closed(object sender, EventArgs e)
+        {
+            frmMainLogin frm= (frmMainLogin) this.ParentForm;
+            frm.Close();
+        }
         private void lblFogotPassword_Click(object sender, EventArgs e)
         {
             Panel panel = (Panel)this.Parent;
